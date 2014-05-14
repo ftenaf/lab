@@ -1,0 +1,6 @@
+= Awestruct test
+Francisco Tena <@gmail>
+
+Little test to meet http://www.awestruct.org[Awestruct]. 
+
+It called my attention when I met  http://www.methods.co.nz/asciidoc/index.html[ASCIIDoc]. More info http://asciidoctor.org/docs/asciidoc-writers-guide/[here]

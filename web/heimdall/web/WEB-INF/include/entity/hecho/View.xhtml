@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="HechoViewDlg" widgetVar="HechoViewDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.ViewHechoTitle}" appendTo="@(body)">
+
+            <h:form id="HechoViewForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{hechoController.selected != null}">
+
+                        <h:outputText value="#{bundle.ViewHechoLabel_id}"/>
+                        <h:outputText value="#{hechoController.selected.id}" title="#{bundle.ViewHechoTitle_id}"/>
+
+                        <h:outputText value="#{bundle.ViewHechoLabel_nombre}"/>
+                        <h:outputText value="#{hechoController.selected.nombre}" title="#{bundle.ViewHechoTitle_nombre}"/>
+
+                        <h:outputText value="#{bundle.ViewHechoLabel_fechaIni}"/>
+                        <h:outputText value="#{hechoController.selected.fechaIni}" title="#{bundle.ViewHechoTitle_fechaIni}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+
+                        <h:outputText value="#{bundle.ViewHechoLabel_fechaFin}"/>
+                        <h:outputText value="#{hechoController.selected.fechaFin}" title="#{bundle.ViewHechoTitle_fechaFin}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        
+                        <h:outputText value="#{bundle.ViewHechoLabel_estado}"/>
+                        <h:outputText value="#{hechoController.selected.estado}" title="#{bundle.ViewHechoTitle_estado}"/>
+
+                        <h:outputText value="#{bundle.ViewHechoLabel_cantidad}"/>
+                        <h:outputText value="#{hechoController.selected.cantidad}" title="#{bundle.ViewHechoTitle_cantidad}"/>
+
+                        <h:outputText value="#{bundle.ViewHechoLabel_detalle}"/>
+                        <p:inputTextarea id="detalle" value="#{hechoController.selected.detalle}" title="#{bundle.ViewHechoTitle_detalle}" rows="5" cols="80"  readonly="true"/>
+                                               
+                        <h:outputText value="#{bundle.ViewHechoLabel_idTarea}"/>
+                        <h:outputText value="#{hechoController.selected.idTarea.nombre}"/>
+
+                        <h:outputText value="#{bundle.ListHechoTitle_tiempo}"/>
+                        <h:outputText value="#{hechoController.selected.tiempo}"/>
+    
+                        <h:outputText value="#{bundle.ViewHechoLabel_idUser}"/>
+                        <h:outputText value="#{hechoController.selected.idUser.nombre}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="HechoViewDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <h:form id="HechoListForm">
+
+        <p:panel header="#{bundle.ListHechoTitle}">
+            
+            <p:dataTable id="datalist" value="#{hechoController.items}" var="item"
+                         rowKey="#{item.id}"
+                         paginator="true"
+                         rows="80"
+                         rowsPerPageTemplate="80,120,140"
+                         rowStyleClass=" #{item.idUser.id eq '1' ? 'user1Style' : item.idUser.id eq '2' ?'user2Style':'user3Style'}"
+                         >
+
+                <p:column sortBy="#{item.fechaIni}" filterBy="#{item.fechaIni}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListHechoTitle_fechaIni}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.fechaIni}">
+                        <f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss" />
+                    </h:outputText>
+                </p:column>
+                <p:column sortBy="#{item.fechaFin}" filterBy="#{item.fechaFin}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListHechoTitle_fechaFin}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.fechaFin}">
+                        <f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss" />
+                    </h:outputText>
+                </p:column>
+                <p:column sortBy="#{item.cantidad}" filterBy="#{item.cantidad}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListHechoTitle_cantidad}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.cantidad}"/>
+                </p:column>
+
+                <p:column sortBy="#{item.idTarea.nombre}" filterBy="#{item.idTarea.nombre}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListHechoTitle_idTarea}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.idTarea.idActividad.nombre} - #{item.idTarea.nombre}"/>
+                </p:column>
+                <p:column sortBy="#{item.idUser.nombre}" filterBy="#{item.idUser.nombre}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListHechoTitle_idUser}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.idUser.nombre}"/>
+                </p:column>
+                <p:column sortBy="#{item.estado}" filterBy="#{item.estado}" style="#{item.estado == 'Terminado'?'color: white;background:red':item.estado == 'Trabajando'?'color: white;background:green':item.estado == 'Pendiente'?'color: black;background:yellow':''}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListHechoTitle_estado}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.estado}"/>
+                </p:column>
+                <p:column sortBy="#{item.tiempo}" filterBy="#{item.tiempo}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListHechoTitle_tiempo}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.tiempoHoras}"/>
+                </p:column>
+            </p:dataTable>
+            <p:poll interval="5" listener="#{hechoController.updateItems}" update="HechoListForm:datalist"/>
+        </p:panel>
+
+    </h:form>
+
+</ui:composition>

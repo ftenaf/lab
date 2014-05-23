@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ActividadEditDlg" widgetVar="ActividadEditDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.EditActividadTitle}">
+
+            <h:form id="ActividadEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" rendered="#{actividadController.selected != null}">
+
+                        <h:outputLabel value="#{bundle.EditActividadLabel_id}" for="id" />
+                        <h:outputText id="id" value="#{actividadController.selected.id}" />
+
+                        <p:outputLabel value="#{bundle.EditActividadLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{actividadController.selected.nombre}" title="#{bundle.EditActividadTitle_nombre}" />
+
+                        <p:outputLabel value="#{bundle.EditActividadLabel_descripcion}" for="descripcion" />
+                        <p:inputText id="descripcion" value="#{actividadController.selected.descripcion}" title="#{bundle.EditActividadTitle_descripcion}" />
+
+                        <p:outputLabel value="#{bundle.EditActividadLabel_idArea}" for="idArea" />
+                        <p:selectOneMenu id="idArea" value="#{actividadController.selected.idArea}"  converter="areaConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{areaController.items}"
+                                           var="idAreaItem"
+                                           itemValue="#{idAreaItem}"
+                                           itemLabel="#{idAreaItem.nombre.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{actividadController.save}" value="#{bundle.Save}" update="display,:ActividadListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,ActividadEditDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ActividadEditDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

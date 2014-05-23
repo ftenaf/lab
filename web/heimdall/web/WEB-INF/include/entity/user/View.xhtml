@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UserViewDlg" widgetVar="UserViewDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.ViewUserTitle}">
+
+            <h:form id="UserViewForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{userController.selected != null}">
+
+                        <h:outputText value="#{bundle.ViewUserLabel_id}"/>
+                        <h:outputText value="#{userController.selected.id}" title="#{bundle.ViewUserTitle_id}"/>
+
+                        <h:outputText value="#{bundle.ViewUserLabel_login}"/>
+                        <h:outputText value="#{userController.selected.login}" title="#{bundle.ViewUserTitle_login}"/>
+
+                        <h:outputText value="#{bundle.ViewUserLabel_pass}"/>
+                        <h:outputText value="#{userController.selected.pass}" title="#{bundle.ViewUserTitle_pass}"/>
+
+                        <h:outputText value="#{bundle.ViewUserLabel_nombre}"/>
+                        <h:outputText value="#{userController.selected.nombre}" title="#{bundle.ViewUserTitle_nombre}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="UserViewDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

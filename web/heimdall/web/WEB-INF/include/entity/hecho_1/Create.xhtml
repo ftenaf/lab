@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="HechoCreateDlg" widgetVar="HechoCreateDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.CreateHechoTitle}">
+
+            <h:form id="HechoCreateForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{hechoController.selected != null}">
+
+                        <p:outputLabel value="#{bundle.CreateHechoLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{hechoController.selected.nombre}" title="#{bundle.CreateHechoTitle_nombre}" />
+
+                        <p:outputLabel value="#{bundle.CreateHechoLabel_fechaIni}" for="fechaIni" />
+                        <p:calendar id="fechaIni" pattern="MM/dd/yyyy HH:mm:ss" value="#{hechoController.selected.fechaIni}" title="#{bundle.EditHechoTitle_fechaIni}"  showOn="button"/>
+
+                        <p:outputLabel value="#{bundle.CreateHechoLabel_fechaFin}" for="fechaFin" />
+                        <p:calendar id="fechaFin" pattern="MM/dd/yyyy HH:mm:ss" value="#{hechoController.selected.fechaFin}" title="#{bundle.EditHechoTitle_fechaFin}"  showOn="button"/>
+
+                        <p:outputLabel value="#{bundle.CreateHechoLabel_cantidad}" for="cantidad" />
+                        <p:inputText id="cantidad" value="#{hechoController.selected.cantidad}" title="#{bundle.CreateHechoTitle_cantidad}" />
+
+                        <p:outputLabel value="#{bundle.CreateHechoLabel_detalle}" for="detalle" />
+                        <p:inputText id="detalle" value="#{hechoController.selected.detalle}" title="#{bundle.CreateHechoTitle_detalle}" />
+
+                        <p:outputLabel value="#{bundle.CreateHechoLabel_estado}" for="idActividad" />
+                        <p:selectOneMenu id="estado" value="#{hechoController.selected.estado}"  converter="actividadConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItem itemLabel="#{bundle.pendiente}"/>
+                            <f:selectItem itemLabel="#{bundle.enproceso}"/>                            
+                            <f:selectItem itemLabel="#{bundle.terminado}"/>
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="#{bundle.CreateHechoLabel_idActividad}" for="idActividad" />
+                        <p:selectOneMenu id="idActividad" value="#{hechoController.selected.idActividad}"  converter="actividadConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{actividadController.items}"
+                                           var="idActividadItem"
+                                           itemValue="#{idActividadItem}"
+                                           itemLabel="#{idActividadItem.nombre.toString()}"
+                                           />
+                            <p:ajax update="idTarea" listener="#{hechoController.handleActividadChange}" />
+                        </p:selectOneMenu>
+                        
+                        <p:outputLabel value="#{bundle.CreateHechoLabel_idTarea}" for="idTarea" />
+                        <p:selectOneMenu id="idTarea" value="#{hechoController.selected.idTarea}"  converter="tareaConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{hechoController.tareas}"
+                                           var="idTareaItem"
+                                           itemValue="#{idTareaItem}"
+                                           itemLabel="#{idTareaItem.nombre.toString()}"
+                                           />
+                        </p:selectOneMenu> 
+
+                        <p:outputLabel value="#{bundle.CreateHechoLabel_idUser}" for="idUser" />
+                        <p:selectOneMenu id="idUser" value="#{hechoController.selected.idUser}"  converter="userConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{userController.items}"
+                                           var="idUserItem"
+                                           itemValue="#{idUserItem}"
+                                           itemLabel="#{idUserItem.nombre.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{hechoController.saveNew}" value="#{bundle.Save}" update="display,:HechoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,HechoCreateDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="HechoCreateDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

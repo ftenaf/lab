@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ActividadViewDlg" widgetVar="ActividadViewDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.ViewActividadTitle}">
+
+            <h:form id="ActividadViewForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{actividadController.selected != null}">
+
+                        <h:outputText value="#{bundle.ViewActividadLabel_id}"/>
+                        <h:outputText value="#{actividadController.selected.id}" title="#{bundle.ViewActividadTitle_id}"/>
+
+                        <h:outputText value="#{bundle.ViewActividadLabel_nombre}"/>
+                        <h:outputText value="#{actividadController.selected.nombre}" title="#{bundle.ViewActividadTitle_nombre}"/>
+
+                        <h:outputText value="#{bundle.ViewActividadLabel_descripcion}"/>
+                        <h:outputText value="#{actividadController.selected.descripcion}" title="#{bundle.ViewActividadTitle_descripcion}"/>
+
+                        <h:outputText value="#{bundle.ViewActividadLabel_idArea}"/>
+                        <h:outputText value="#{actividadController.selected.idArea.nombre}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ActividadViewDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

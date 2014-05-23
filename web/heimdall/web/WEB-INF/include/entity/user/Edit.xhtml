@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UserEditDlg" widgetVar="UserEditDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.EditUserTitle}">
+
+            <h:form id="UserEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" rendered="#{userController.selected != null}">
+
+                        <h:outputLabel value="#{bundle.EditUserLabel_id}" for="id" />
+                        <h:outputText id="id" value="#{userController.selected.id}" />
+
+                        <p:outputLabel value="#{bundle.EditUserLabel_login}" for="login" />
+                        <p:inputText id="login" value="#{userController.selected.login}" title="#{bundle.EditUserTitle_login}" />
+
+                        <p:outputLabel value="#{bundle.EditUserLabel_pass}" for="pass" />
+                        <p:inputText id="pass" value="#{userController.selected.pass}" title="#{bundle.EditUserTitle_pass}" />
+
+                        <p:outputLabel value="#{bundle.EditUserLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{userController.selected.nombre}" title="#{bundle.EditUserTitle_nombre}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{userController.save}" value="#{bundle.Save}" update="display,:UserListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,UserEditDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="UserEditDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

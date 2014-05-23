@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+        <h:form id="RangobarcodeListForm">
+
+            <p:panel header="#{bundle.ListRangobarcodeTitle}">
+
+                <p:dataTable id="datalist" value="#{rangobarcodeController.items}" var="item"
+                             selectionMode="single" selection="#{rangobarcodeController.selected}"
+                             rowKey="#{item.id}"
+                             paginator="true"
+                             rows="10"
+                             rowsPerPageTemplate="10,30,60"
+                             rowStyleClass=" #{item.idUser.id eq '1' ? 'user1Style' : 'user2Style'}" 
+            >
+
+                    <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                    <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                    <p:column sortBy="#{item.fecha}" filterBy="#{item.fecha}">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListRangobarcodeTitle_fecha}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.fecha}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column sortBy="#{item.desde}" filterBy="#{item.desde}">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListRangobarcodeTitle_desde}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.desde}"/>
+                    </p:column>
+                    <p:column sortBy="#{item.hasta}" filterBy="#{item.hasta}">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListRangobarcodeTitle_hasta}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.hasta}"/>
+                    </p:column>
+                    <p:column sortBy="#{item.idUser.nombre}" filterBy="#{item.idUser.nombre}">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListRangobarcodeTitle_idUser}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idUser.nombre}"/>
+                    </p:column>
+                    <f:facet name="footer">
+                      <div class="footer-section">
+                        <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{rangobarcodeController.prepareCreate}" update=":RangobarcodeCreateForm" oncomplete="RangobarcodeCreateDialog.show()"/>
+                        <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":RangobarcodeViewForm" oncomplete="RangobarcodeViewDialog.show()" disabled="#{empty rangobarcodeController.selected}"/>
+                        <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":RangobarcodeEditForm" oncomplete="RangobarcodeEditDialog.show()" disabled="#{empty rangobarcodeController.selected}"/>
+                        <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{rangobarcodeController.delete}" update=":growl,datalist" disabled="#{empty rangobarcodeController.selected}"/>
+                      </div>
+                    </f:facet>
+
+                </p:dataTable>
+
+            </p:panel>
+
+        </h:form>
+
+</ui:composition>

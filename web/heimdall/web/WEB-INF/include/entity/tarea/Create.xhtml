@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TareaCreateDlg" widgetVar="TareaCreateDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.CreateTareaTitle}">
+
+            <h:form id="TareaCreateForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tareaController.selected != null}">
+
+                        <p:outputLabel value="#{bundle.CreateTareaLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{tareaController.selected.nombre}" title="#{bundle.CreateTareaTitle_nombre}" />
+
+                        <p:outputLabel value="#{bundle.CreateTareaLabel_descripcion}" for="descripcion" />
+                        <p:inputText id="descripcion" value="#{tareaController.selected.descripcion}" title="#{bundle.CreateTareaTitle_descripcion}" />
+
+                        <p:outputLabel value="#{bundle.CreateTareaLabel_idActividad}" for="idActividad" />
+                        <p:selectOneMenu id="idActividad" value="#{tareaController.selected.idActividad}"  converter="actividadConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{actividadController.items}"
+                                           var="idActividadItem"
+                                           itemValue="#{idActividadItem}"
+                                           itemLabel="#{idActividadItem.nombre.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tareaController.saveNew}" value="#{bundle.Save}" update="display,:TareaListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,TareaCreateDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TareaCreateDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

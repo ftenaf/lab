@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="HechoEditDlg" widgetVar="HechoEditDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.EditHechoTitle}">
+
+            <h:form id="HechoEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" rendered="#{hechoController.selected != null}">
+
+                        <h:outputLabel value="#{bundle.EditHechoLabel_id}" for="id" />
+                        <h:outputText id="id" value="#{hechoController.selected.id}" />
+
+                        <p:outputLabel value="#{bundle.EditHechoLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{hechoController.selected.nombre}" title="#{bundle.EditHechoTitle_nombre}" />
+
+                        <p:outputLabel value="#{bundle.EditHechoLabel_fechaIni}" for="fechaIni" />
+                        <p:calendar id="fechaIni" pattern="MM/dd/yyyy HH:mm:ss" value="#{hechoController.selected.fechaIni}" title="#{bundle.EditHechoTitle_fechaIni}"  showOn="button"/>
+
+                        <p:outputLabel value="#{bundle.EditHechoLabel_fechaFin}" for="fechaFin" />
+                        <p:calendar id="fechaFin" pattern="MM/dd/yyyy HH:mm:ss" value="#{hechoController.selected.fechaFin}" title="#{bundle.EditHechoTitle_fechaFin}"  showOn="button"/>
+
+                        <p:outputLabel value="#{bundle.EditHechoLabel_cantidad}" for="cantidad" />
+                        <p:inputText id="cantidad" value="#{hechoController.selected.cantidad}" title="#{bundle.EditHechoTitle_cantidad}" />
+
+                        <p:outputLabel value="#{bundle.EditHechoLabel_detalle}" for="detalle" />
+                        <p:inputText id="detalle" value="#{hechoController.selected.detalle}" title="#{bundle.EditHechoTitle_detalle}" />
+
+                        <p:outputLabel value="#{bundle.EditHechoLabel_idTarea}" for="idTarea" />
+                        <p:selectOneMenu id="idTarea" value="#{hechoController.selected.idTarea}"  converter="tareaConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{tareaController.items}"
+                                           var="idTareaItem"
+                                           itemValue="#{idTareaItem}"
+                                           itemLabel="#{idTareaItem.nombre.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="#{bundle.EditHechoLabel_idUser}" for="idUser" />
+                        <p:selectOneMenu id="idUser" value="#{hechoController.selected.idUser}"  converter="userConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{userController.items}"
+                                           var="idUserItem"
+                                           itemValue="#{idUserItem}"
+                                           itemLabel="#{idUserItem.nombre.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{hechoController.save}" value="#{bundle.Save}" update="display,:HechoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,HechoEditDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="HechoEditDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

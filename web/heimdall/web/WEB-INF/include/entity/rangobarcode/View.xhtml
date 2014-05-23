@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RangobarcodeViewDlg" widgetVar="RangobarcodeViewDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.ViewRangobarcodeTitle}">
+
+            <h:form id="RangobarcodeViewForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{rangobarcodeController.selected != null}">
+
+                        <h:outputText value="#{bundle.ViewRangobarcodeLabel_id}"/>
+                        <h:outputText value="#{rangobarcodeController.selected.id}" title="#{bundle.ViewRangobarcodeTitle_id}"/>
+
+                        <h:outputText value="#{bundle.ViewRangobarcodeLabel_fecha}"/>
+                        <h:outputText value="#{rangobarcodeController.selected.fecha}" title="#{bundle.ViewRangobarcodeTitle_fecha}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+
+                        <h:outputText value="#{bundle.ViewRangobarcodeLabel_desde}"/>
+                        <h:outputText value="#{rangobarcodeController.selected.desde}" title="#{bundle.ViewRangobarcodeTitle_desde}"/>
+
+                        <h:outputText value="#{bundle.ViewRangobarcodeLabel_hasta}"/>
+                        <h:outputText value="#{rangobarcodeController.selected.hasta}" title="#{bundle.ViewRangobarcodeTitle_hasta}"/>
+
+                        <h:outputText value="#{bundle.ViewRangobarcodeLabel_idUser}"/>
+                        <h:outputText value="#{rangobarcodeController.selected.idUser.nombre}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="RangobarcodeViewDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

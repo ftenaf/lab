@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <h:form id="HechoListForm">
+
+        <p:panel header="#{bundle.ListHechoTitle}">
+            
+            <p:dataTable id="datalist" value="#{hechoController.items}" var="item"
+                         selectionMode="single" selection="#{hechoController.selected}"
+                         rowKey="#{item.id}"
+                         paginator="true"
+                         rows="10"
+                         rowsPerPageTemplate="10,20,40"
+                         >
+
+                <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton buttonEnd buttonPause buttonPlay"/>
+                <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton buttonEnd buttonPause buttonPlay"/>
+                <p:column sortBy="#{item.id}" filterBy="#{item.id}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListHechoTitle_id}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.id}"/>
+                </p:column>
+                <p:column sortBy="#{item.fechaIni}" filterBy="#{item.fechaIni}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListHechoTitle_fechaIni}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.fechaIni}">
+                        <f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss" />
+                    </h:outputText>
+                </p:column>
+                <p:column sortBy="#{item.fechaFin}" filterBy="#{item.fechaFin}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListHechoTitle_fechaFin}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.fechaFin}">
+                        <f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss" />
+                    </h:outputText>
+                </p:column>
+                <p:column sortBy="#{item.cantidad}" filterBy="#{item.cantidad}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListHechoTitle_cantidad}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.cantidad}"/>
+                </p:column>
+
+                <p:column sortBy="#{item.idTarea.nombre}" filterBy="#{item.idTarea.nombre}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListHechoTitle_idTarea}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.idTarea.idActividad.nombre} - #{item.idTarea.nombre}"/>
+                </p:column>
+                <p:column sortBy="#{item.idUser.nombre}" filterBy="#{item.idUser.nombre}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListHechoTitle_idUser}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.idUser.nombre}"/>
+                </p:column>
+                <p:column sortBy="#{item.estado}" filterBy="#{item.estado}" style="#{item.estado == 'Terminado'?'color: white;background:red':item.estado == 'Trabajando'?'color: white;background:green':item.estado == 'Pendiente'?'color: black;background:yellow':''}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListHechoTitle_estado}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.estado}"/>
+                </p:column>
+                <p:column sortBy="#{item.tiempo}" filterBy="#{item.tiempo}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListHechoTitle_tiempo}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.tiempoHoras}"/>
+                </p:column>
+                
+                
+                <p:column style="width:4%;text-align: center;background-color: green">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListHechoTitle_play}"/>
+                    </f:facet>
+                    <p:commandButton id="buttonPlay" icon="ui-icon-play" title="Trabajando" actionListener="#{hechoController.working}" 
+                                     update=":HechoListForm:datalist,:growl" >  
+                        <f:setPropertyActionListener value="#{item}" target="#{hechoController.selected}" />  
+                    </p:commandButton>  
+                </p:column>
+                <p:column style="width:4%;text-align: center;background-color: yellow">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListHechoTitle_pause}"/>
+                    </f:facet>
+                    <p:commandButton id="buttonPause" icon="ui-icon-pause" title="Pendiente" actionListener="#{hechoController.pause}" 
+                                     update=":HechoListForm:datalist,:growl" >  
+                        <f:setPropertyActionListener value="#{item}" target="#{hechoController.selected}" />  
+                    </p:commandButton>
+                </p:column>
+                <p:column style="width:4%;text-align: center;background-color: red">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListHechoTitle_end}"/>
+                    </f:facet>
+                    <p:commandButton id="buttonEnd" icon="ui-icon-circle-check" title="Terminada" actionListener="#{hechoController.finish}" 
+                                     update=":HechoListForm:datalist,:growl" >  
+                        <f:setPropertyActionListener value="#{item}" target="#{hechoController.selected}" />
+                    </p:commandButton>  
+                </p:column>
+
+                <f:facet name="footer">
+                    <div class="footer-section">
+                        <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{hechoController.prepareCreate}" update=":HechoCreateForm" oncomplete="HechoCreateDialog.show()"/>
+                        <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":HechoViewForm" oncomplete="HechoViewDialog.show()" disabled="#{empty hechoController.selected}"/>
+                        <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":HechoEditForm" oncomplete="HechoEditDialog.show()" disabled="#{empty hechoController.selected}"/>
+                        <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{hechoController.delete}" update=":growl,datalist" disabled="#{empty hechoController.selected}"/>
+                    </div>
+                </f:facet>
+
+            </p:dataTable>
+            
+        </p:panel>
+
+    </h:form>
+
+</ui:composition>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AreaCreateDlg" widgetVar="AreaCreateDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.CreateAreaTitle}">
+
+            <h:form id="AreaCreateForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{areaController.selected != null}">
+
+                        <p:outputLabel value="#{bundle.CreateAreaLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{areaController.selected.nombre}" title="#{bundle.CreateAreaTitle_nombre}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{areaController.saveNew}" value="#{bundle.Save}" update="display,:AreaListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,AreaCreateDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="AreaCreateDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RangobarcodeCreateDlg" widgetVar="RangobarcodeCreateDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.CreateRangobarcodeTitle}">
+
+            <h:form id="RangobarcodeCreateForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{rangobarcodeController.selected != null}">
+
+                        <p:outputLabel value="#{bundle.CreateRangobarcodeLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy HH:mm:ss" value="#{rangobarcodeController.selected.fecha}" title="#{bundle.EditRangobarcodeTitle_fecha}"  showOn="button"/>
+
+                        <p:outputLabel value="#{bundle.CreateRangobarcodeLabel_desde}" for="desde" />
+                        <p:inputText id="desde" value="#{rangobarcodeController.selected.desde}" title="#{bundle.CreateRangobarcodeTitle_desde}" />
+
+                        <p:outputLabel value="#{bundle.CreateRangobarcodeLabel_hasta}" for="hasta" />
+                        <p:inputText id="hasta" value="#{rangobarcodeController.selected.hasta}" title="#{bundle.CreateRangobarcodeTitle_hasta}" />
+
+                        <p:outputLabel value="#{bundle.CreateRangobarcodeLabel_idUser}" for="idUser" />
+                        <p:selectOneMenu id="idUser" value="#{rangobarcodeController.selected.idUser}"  converter="userConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{userController.items}"
+                                           var="idUserItem"
+                                           itemValue="#{idUserItem}"
+                                           itemLabel="#{idUserItem.nombre.toString()}"
+                            />
+                            
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{rangobarcodeController.saveNew}" value="#{bundle.Save}" update="display,:RangobarcodeListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,RangobarcodeCreateDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="RangobarcodeCreateDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

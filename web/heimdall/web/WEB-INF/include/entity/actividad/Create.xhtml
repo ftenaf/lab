@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ActividadCreateDlg" widgetVar="ActividadCreateDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.CreateActividadTitle}">
+
+            <h:form id="ActividadCreateForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{actividadController.selected != null}">
+
+                        <p:outputLabel value="#{bundle.CreateActividadLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{actividadController.selected.nombre}" title="#{bundle.CreateActividadTitle_nombre}" />
+
+                        <p:outputLabel value="#{bundle.CreateActividadLabel_descripcion}" for="descripcion" />
+                        <p:inputText id="descripcion" value="#{actividadController.selected.descripcion}" title="#{bundle.CreateActividadTitle_descripcion}" />
+
+                        <p:outputLabel value="#{bundle.CreateActividadLabel_idArea}" for="idArea" />
+                        <p:selectOneMenu id="idArea" value="#{actividadController.selected.idArea}"  converter="areaConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{areaController.items}"
+                                           var="idAreaItem"
+                                           itemValue="#{idAreaItem}"
+                                           itemLabel="#{idAreaItem.nombre.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{actividadController.saveNew}" value="#{bundle.Save}" update="display,:ActividadListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,ActividadCreateDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ActividadCreateDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

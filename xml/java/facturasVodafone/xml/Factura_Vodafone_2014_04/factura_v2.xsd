@@ -1,0 +1,1448 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+	<xs:element name="INVOICE">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="INFO">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="BILL">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute type="xs:date" name="toDt"/>
+											<xs:attribute type="xs:date" name="statementDt"/>
+											<xs:attribute type="xs:int" name="sfid"/>
+											<xs:attribute type="xs:string" name="promotionId"/>
+											<xs:attribute type="xs:byte" name="preNumAccnt"/>
+											<xs:attribute type="xs:string" name="preDocType"/>
+											<xs:attribute type="xs:int" name="numAccnt"/>
+											<xs:attribute type="xs:short" name="monoLine"/>
+											<xs:attribute type="xs:byte" name="idLang"/>
+											<xs:attribute type="xs:date" name="fromDt"/>
+											<xs:attribute type="xs:byte" name="formatOpt"/>
+											<xs:attribute type="xs:byte" name="emitPlaceID"/>
+											<xs:attribute type="xs:date" name="emitDt"/>
+											<xs:attribute type="xs:date" name="dueDt"/>
+											<xs:attribute type="xs:string" name="docType"/>
+											<xs:attribute type="xs:string" name="descEmitPlace"/>
+											<xs:attribute type="xs:string" name="descEmitCountry"/>
+											<xs:attribute type="xs:float" name="defTaxRate"/>
+											<xs:attribute type="xs:dateTime" name="dateActive"/>
+											<xs:attribute type="xs:byte" name="currCode"/>
+											<xs:attribute type="xs:string" name="currCSap"/>
+											<xs:attribute type="xs:byte" name="courtesyBill"/>
+											<xs:attribute type="xs:byte" name="countryCode"/>
+											<xs:attribute type="xs:string" name="billType"/>
+											<xs:attribute type="xs:byte" name="billSeqNum"/>
+											<xs:attribute type="xs:byte" name="billRefResets"/>
+											<xs:attribute type="xs:string" name="billRef"/>
+											<xs:attribute type="xs:string" name="billPeriod"/>
+											<xs:attribute type="xs:int" name="fcnumAccnt"/>
+											<xs:attribute type="xs:byte" name="accountCategory"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="CUST">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute type="xs:string" name="treat"/>
+											<xs:attribute type="xs:string" name="title"/>
+											<xs:attribute type="xs:byte" name="robinsonFlag"/>
+											<xs:attribute type="xs:string" name="nifCif"/>
+											<xs:attribute type="xs:string" name="name"/>
+											<xs:attribute type="xs:string" name="company"/>
+											<xs:attribute type="xs:string" name="cargo"/>
+											<xs:attribute type="xs:string" name="IdType"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ADDR">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute type="xs:int" name="zip"/>
+											<xs:attribute type="xs:string" name="prov"/>
+											<xs:attribute type="xs:string" name="line3"/>
+											<xs:attribute type="xs:string" name="line2"/>
+											<xs:attribute type="xs:string" name="line1"/>
+											<xs:attribute type="xs:string" name="dest"/>
+											<xs:attribute type="xs:string" name="country"/>
+											<xs:attribute type="xs:string" name="city"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="PAY">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute type="xs:int" name="reference"/>
+											<xs:attribute type="xs:string" name="payMethodSap"/>
+											<xs:attribute type="xs:string" name="payMethodDoc1Desc"/>
+											<xs:attribute type="xs:byte" name="payMethodDoc1"/>
+											<xs:attribute type="xs:byte" name="payMethod"/>
+											<xs:attribute type="xs:string" name="payConditionSap"/>
+											<xs:attribute type="xs:string" name="controlDigit"/>
+											<xs:attribute type="xs:string" name="cardCarrier"/>
+											<xs:attribute type="xs:string" name="cardAcount"/>
+											<xs:attribute type="xs:string" name="bankSortCode"/>
+											<xs:attribute type="xs:string" name="bankName"/>
+											<xs:attribute type="xs:string" name="bankCode"/>
+											<xs:attribute type="xs:string" name="bankAgencyCode"/>
+											<xs:attribute type="xs:string" name="bankAccNum"/>
+											<xs:attribute type="xs:string" name="bankAccName"/>
+											<xs:attribute type="xs:string" name="agencyCode"/>
+											<xs:attribute type="xs:integer" name="barCode"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="MK">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute type="xs:string" name="stuffer"/>
+											<xs:attribute type="xs:string" name="segment"/>
+											<xs:attribute type="xs:byte" name="numberVS"/>
+											<xs:attribute type="xs:byte" name="explainFlag"/>
+											<xs:attribute type="xs:string" name="campaign"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="OPT">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="HIST">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute type="xs:float" name="month9"/>
+														<xs:attribute type="xs:float" name="month8"/>
+														<xs:attribute type="xs:float" name="month7"/>
+														<xs:attribute type="xs:float" name="month6"/>
+														<xs:attribute type="xs:float" name="month5"/>
+														<xs:attribute type="xs:float" name="month4"/>
+														<xs:attribute type="xs:float" name="month3"/>
+														<xs:attribute type="xs:float" name="month2"/>
+														<xs:attribute type="xs:float" name="month13"/>
+														<xs:attribute type="xs:float" name="month12"/>
+														<xs:attribute type="xs:float" name="month11"/>
+														<xs:attribute type="xs:float" name="month10"/>
+														<xs:attribute type="xs:float" name="month1"/>
+														<xs:attribute type="xs:float" name="min9"/>
+														<xs:attribute type="xs:float" name="min8"/>
+														<xs:attribute type="xs:float" name="min7"/>
+														<xs:attribute type="xs:float" name="min6"/>
+														<xs:attribute type="xs:float" name="min5"/>
+														<xs:attribute type="xs:float" name="min4"/>
+														<xs:attribute type="xs:float" name="min3"/>
+														<xs:attribute type="xs:float" name="min2"/>
+														<xs:attribute type="xs:byte" name="min13"/>
+														<xs:attribute type="xs:float" name="min12"/>
+														<xs:attribute type="xs:float" name="min11"/>
+														<xs:attribute type="xs:float" name="min10"/>
+														<xs:attribute type="xs:float" name="min1"/>
+														<xs:attribute type="xs:float" name="maxCons"/>
+														<xs:attribute type="xs:float" name="dayAVG"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="LOY">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute type="xs:date" name="procDt"/>
+														<xs:attribute type="xs:byte" name="noFacCheck"/>
+														<xs:attribute type="xs:byte" name="loyFlag"/>
+														<xs:attribute type="xs:byte" name="expPoints3"/>
+														<xs:attribute type="xs:byte" name="expPoints2"/>
+														<xs:attribute type="xs:byte" name="expPoints1"/>
+														<xs:attribute type="xs:date" name="expDt3"/>
+														<xs:attribute type="xs:date" name="expDt2"/>
+														<xs:attribute type="xs:date" name="expDt1"/>
+														<xs:attribute type="xs:byte" name="currBal2"/>
+														<xs:attribute type="xs:short" name="currBal1"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="PULL">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute type="xs:string" name="descResp"/>
+														<xs:attribute type="xs:string" name="descOrden"/>
+														<xs:attribute type="xs:string" name="descDept"/>
+														<xs:attribute type="xs:byte" name="codResp"/>
+														<xs:attribute type="xs:byte" name="codDept"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="VPN">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute type="xs:int" name="vpnId"/>
+														<xs:attribute type="xs:byte" name="vpnGroupId"/>
+														<xs:attribute type="xs:string" name="descGCU"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="TOT">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="TAXSUMM" maxOccurs="unbounded" minOccurs="0">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute type="xs:float" name="totalTax" use="optional"/>
+											<xs:attribute type="xs:float" name="totalAmt" use="optional"/>
+											<xs:attribute type="xs:string" name="taxSap" use="optional"/>
+											<xs:attribute type="xs:float" name="taxRate" use="optional"/>
+											<xs:attribute type="xs:string" name="taxName" use="optional"/>
+											<xs:attribute type="xs:float" name="baseTotal" use="optional"/>
+											<xs:attribute type="xs:float" name="amtToPay" use="optional"/>
+											<xs:attribute type="xs:float" name="totalAmt2" use="optional"/>
+											<xs:attribute type="xs:float" name="totalAmt1" use="optional"/>
+											<xs:attribute type="xs:string" name="taxSap2" use="optional"/>
+											<xs:attribute type="xs:string" name="taxSap1" use="optional"/>
+											<xs:attribute type="xs:float" name="baseTotal2" use="optional"/>
+											<xs:attribute type="xs:float" name="baseTotal1" use="optional"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute type="xs:float" name="totalAmt"/>
+						<xs:attribute type="xs:float" name="subtotalAmt"/>
+						<xs:attribute type="xs:float" name="simPay"/>
+						<xs:attribute type="xs:float" name="previousDue"/>
+						<xs:attribute type="xs:float" name="pendingCredit"/>
+						<xs:attribute type="xs:float" name="paymentsAmt"/>
+						<xs:attribute type="xs:float" name="hogar"/>
+						<xs:attribute type="xs:float" name="gamb"/>
+						<xs:attribute type="xs:float" name="billCredit"/>
+						<xs:attribute type="xs:float" name="amtToPay"/>
+						<xs:attribute type="xs:float" name="TCVF"/>
+						<xs:attribute type="xs:float" name="ER"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="SERVSUMMARY">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Tot">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="groupTOT" maxOccurs="unbounded" minOccurs="0">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute type="xs:float" name="totalUsg" use="optional"/>
+														<xs:attribute type="xs:float" name="totalChrg" use="optional"/>
+														<xs:attribute type="xs:float" name="totalAmt" use="optional"/>
+														<xs:attribute type="xs:byte" name="groupId" use="optional"/>
+														<xs:attribute type="xs:string" name="groupDesc" use="optional"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute type="xs:float" name="totalDiscount"/>
+									<xs:attribute type="xs:float" name="totalAmt"/>
+									<xs:attribute type="xs:short" name="count"/>
+									<xs:attribute type="xs:float" name="appliedDiscount"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="RESCHA">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="TOT">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute type="xs:float" name="totalDiscount"/>
+														<xs:attribute type="xs:float" name="totalAmt"/>
+														<xs:attribute type="xs:short" name="count"/>
+														<xs:attribute type="xs:float" name="appliedDiscount"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="RESGROUP" maxOccurs="unbounded" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="TOT">
+														<xs:complexType>
+															<xs:simpleContent>
+																<xs:extension base="xs:string">
+																	<xs:attribute type="xs:float" name="totalDiscount" use="optional"/>
+																	<xs:attribute type="xs:float" name="totalAmt" use="optional"/>
+																	<xs:attribute type="xs:short" name="count" use="optional"/>
+																	<xs:attribute type="xs:float" name="appliedDiscount" use="optional"/>
+																</xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="Rc" maxOccurs="unbounded" minOccurs="0">
+														<xs:complexType>
+															<xs:simpleContent>
+																<xs:extension base="xs:string">
+																	<xs:attribute type="xs:float" name="disc" use="optional"/>
+																	<xs:attribute type="xs:short" name="count" use="optional"/>
+																	<xs:attribute type="xs:float" name="amt" use="optional"/>
+																	<xs:attribute type="xs:string" name="Literal" use="optional"/>
+																</xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="NRC">
+														<xs:complexType>
+															<xs:simpleContent>
+																<xs:extension base="xs:string">
+																	<xs:attribute type="xs:float" name="disc" use="optional"/>
+																	<xs:attribute type="xs:byte" name="count" use="optional"/>
+																	<xs:attribute type="xs:float" name="amt" use="optional"/>
+																	<xs:attribute type="xs:string" name="Literal" use="optional"/>
+																</xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="RESDISC" maxOccurs="unbounded" minOccurs="0">
+														<xs:complexType>
+															<xs:simpleContent>
+																<xs:extension base="xs:string">
+																	<xs:attribute type="xs:float" name="totalDisc" use="optional"/>
+																	<xs:attribute type="xs:float" name="totalAmt" use="optional"/>
+																	<xs:attribute type="xs:string" name="desc" use="optional"/>
+																	<xs:attribute type="xs:byte" name="count" use="optional"/>
+																	<xs:attribute type="xs:short" name="discountId" use="optional"/>
+																</xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute type="xs:byte" name="groupId" use="optional"/>
+												<xs:attribute type="xs:string" name="groupDesc" use="optional"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="RESUSG">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="TOT">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute type="xs:int" name="totalUnits"/>
+														<xs:attribute type="xs:byte" name="totalDiscount"/>
+														<xs:attribute type="xs:float" name="totalAmt"/>
+														<xs:attribute type="xs:short" name="count"/>
+														<xs:attribute type="xs:float" name="appliedDiscount"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="RESGROUP" maxOccurs="unbounded" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="TOT">
+														<xs:complexType>
+															<xs:simpleContent>
+																<xs:extension base="xs:string">
+																	<xs:attribute type="xs:int" name="totalUnits" use="optional"/>
+																	<xs:attribute type="xs:byte" name="totalDiscount" use="optional"/>
+																	<xs:attribute type="xs:float" name="totalAmt" use="optional"/>
+																	<xs:attribute type="xs:short" name="count" use="optional"/>
+																	<xs:attribute type="xs:float" name="appliedDiscount" use="optional"/>
+																</xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="RESTYPE" maxOccurs="unbounded" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="TOT">
+																	<xs:complexType>
+																		<xs:simpleContent>
+																			<xs:extension base="xs:string">
+																				<xs:attribute type="xs:short" name="unitsType" use="optional"/>
+																				<xs:attribute type="xs:int" name="totalUnits" use="optional"/>
+																				<xs:attribute type="xs:float" name="totalAmt" use="optional"/>
+																				<xs:attribute type="xs:short" name="count" use="optional"/>
+																				<xs:attribute type="xs:float" name="appliedDiscount" use="optional"/>
+																				<xs:attribute type="xs:string" name="liDura" use="optional"/>
+																			</xs:extension>
+																		</xs:simpleContent>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+															<xs:attribute type="xs:short" name="idTipo" use="optional"/>
+															<xs:attribute type="xs:string" name="descTipo" use="optional"/>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute type="xs:byte" name="groupID" use="optional"/>
+												<xs:attribute type="xs:string" name="groupDesc" use="optional"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ACCNTCHARGES">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Tot">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute type="xs:byte" name="unitsType"/>
+											<xs:attribute type="xs:byte" name="totalUnits"/>
+											<xs:attribute type="xs:float" name="totalDiscount"/>
+											<xs:attribute type="xs:float" name="totalAmt"/>
+											<xs:attribute type="xs:byte" name="count"/>
+											<xs:attribute type="xs:float" name="appliedDiscount"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="RCS">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="TOT">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute type="xs:byte" name="unitsType"/>
+														<xs:attribute type="xs:byte" name="totalUnits"/>
+														<xs:attribute type="xs:float" name="totalDiscount"/>
+														<xs:attribute type="xs:float" name="totalAmt"/>
+														<xs:attribute type="xs:byte" name="count"/>
+														<xs:attribute type="xs:float" name="appliedDiscount"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="RC" maxOccurs="unbounded" minOccurs="0">
+											<xs:complexType mixed="true">
+												<xs:sequence>
+													<xs:element name="CONT" minOccurs="0">
+														<xs:complexType>
+															<xs:simpleContent>
+																<xs:extension base="xs:string">
+																	<xs:attribute type="xs:string" name="taxSap" use="optional"/>
+																	<xs:attribute type="xs:float" name="tax" use="optional"/>
+																	<xs:attribute type="xs:int" name="sfid" use="optional"/>
+																	<xs:attribute type="xs:float" name="percent" use="optional"/>
+																	<xs:attribute type="xs:byte" name="flagComission" use="optional"/>
+																	<xs:attribute type="xs:float" name="disc" use="optional"/>
+																	<xs:attribute type="xs:string" name="contAcctDesc" use="optional"/>
+																	<xs:attribute type="xs:int" name="contAcct" use="optional"/>
+																	<xs:attribute type="xs:float" name="amt" use="optional"/>
+																	<xs:attribute type="xs:long" name="accalias" use="optional"/>
+																</xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute type="xs:byte" name="units" use="optional"/>
+												<xs:attribute type="xs:date" name="toDt" use="optional"/>
+												<xs:attribute type="xs:byte" name="suppServ" use="optional"/>
+												<xs:attribute type="xs:byte" name="subscr_no" use="optional"/>
+												<xs:attribute type="xs:byte" name="subscrNoResets" use="optional"/>
+												<xs:attribute type="xs:byte" name="productLineId" use="optional"/>
+												<xs:attribute type="xs:float" name="percent" use="optional"/>
+												<xs:attribute type="xs:date" name="fromDt" use="optional"/>
+												<xs:attribute type="xs:byte" name="franchFlag" use="optional"/>
+												<xs:attribute type="xs:short" name="elementId" use="optional"/>
+												<xs:attribute type="xs:string" name="conceptType" use="optional"/>
+												<xs:attribute type="xs:string" name="commId" use="optional"/>
+												<xs:attribute type="xs:byte" name="aggrFlag" use="optional"/>
+												<xs:attribute type="xs:float" name="tax" use="optional"/>
+												<xs:attribute type="xs:float" name="discPercent" use="optional"/>
+												<xs:attribute type="xs:float" name="disc" use="optional"/>
+												<xs:attribute type="xs:float" name="amt" use="optional"/>
+												<xs:attribute type="xs:byte" name="draw" use="optional"/>
+												<xs:attribute type="xs:string" name="desc" use="optional"/>
+												<xs:attribute type="xs:byte" name="groupedCount" use="optional"/>
+												<xs:attribute type="xs:byte" name="isReal" use="optional"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="DISCS">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="TOT">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute type="xs:byte" name="totalUnits"/>
+														<xs:attribute type="xs:float" name="totalDiscount"/>
+														<xs:attribute type="xs:float" name="totalAmt"/>
+														<xs:attribute type="xs:byte" name="count"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="DISC" maxOccurs="unbounded" minOccurs="0">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute type="xs:byte" name="suppServ" use="optional"/>
+														<xs:attribute type="xs:date" name="startDt" use="optional"/>
+														<xs:attribute type="xs:byte" name="productLineId" use="optional"/>
+														<xs:attribute type="xs:byte" name="franchFlag" use="optional"/>
+														<xs:attribute type="xs:float" name="federalTax" use="optional"/>
+														<xs:attribute type="xs:short" name="discountId" use="optional"/>
+														<xs:attribute type="xs:byte" name="discType" use="optional"/>
+														<xs:attribute type="xs:short" name="billRow" use="optional"/>
+														<xs:attribute type="xs:float" name="baseAmt" use="optional"/>
+														<xs:attribute type="xs:byte" name="subscrNoResets" use="optional"/>
+														<xs:attribute type="xs:byte" name="subscrNo" use="optional"/>
+														<xs:attribute type="xs:byte" name="productGroupID" use="optional"/>
+														<xs:attribute type="xs:byte" name="icbAllow" use="optional"/>
+														<xs:attribute type="xs:short" name="descriptionCode" use="optional"/>
+														<xs:attribute type="xs:float" name="tax" use="optional"/>
+														<xs:attribute type="xs:float" name="discPercent" use="optional"/>
+														<xs:attribute type="xs:float" name="disc" use="optional"/>
+														<xs:attribute type="xs:float" name="amt" use="optional"/>
+														<xs:attribute type="xs:byte" name="draw" use="optional"/>
+														<xs:attribute type="xs:string" name="desc" use="optional"/>
+														<xs:attribute type="xs:byte" name="productLineFPGD" use="optional"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="NOTAXSUMM">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="LINE" maxOccurs="unbounded" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="EXEMPT">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute type="xs:string" name="type" use="optional"/>
+														<xs:attribute type="xs:string" name="time" use="optional"/>
+														<xs:attribute type="xs:string" name="subtype" use="optional"/>
+														<xs:attribute type="xs:int" name="serv" use="optional"/>
+														<xs:attribute type="xs:string" name="product" use="optional"/>
+														<xs:attribute type="xs:string" name="desc" use="optional"/>
+														<xs:attribute type="xs:date" name="date" use="optional"/>
+														<xs:attribute type="xs:float" name="amt" use="optional"/>
+														<xs:attribute type="xs:string" name="ShopName" use="optional"/>
+														<xs:attribute type="xs:short" name="ProviderId" use="optional"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute type="xs:float" name="total" use="optional"/>
+									<xs:attribute type="xs:string" name="time" use="optional"/>
+									<xs:attribute type="xs:int" name="serv" use="optional"/>
+									<xs:attribute type="xs:string" name="product" use="optional"/>
+									<xs:attribute type="xs:byte" name="isVoiceUsage" use="optional"/>
+									<xs:attribute type="xs:string" name="extIdDOC1" use="optional"/>
+									<xs:attribute type="xs:string" name="desc" use="optional"/>
+									<xs:attribute type="xs:date" name="date" use="optional"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute type="xs:byte" name="totalDiscount"/>
+						<xs:attribute type="xs:float" name="total"/>
+						<xs:attribute type="xs:byte" name="appliedDiscount"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="SERVTOTALSUMM">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="SERVTOTAL" maxOccurs="unbounded" minOccurs="0">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute type="xs:string" name="voicePricePlan" use="optional"/>
+											<xs:attribute type="xs:float" name="totalUsage" use="optional"/>
+											<xs:attribute type="xs:float" name="totalCharges" use="optional"/>
+											<xs:attribute type="xs:float" name="total" use="optional"/>
+											<xs:attribute type="xs:string" name="serv" use="optional"/>
+											<xs:attribute type="xs:float" name="netTotalUsage" use="optional"/>
+											<xs:attribute type="xs:float" name="netTotalCharges" use="optional"/>
+											<xs:attribute type="xs:float" name="netTotal" use="optional"/>
+											<xs:attribute type="xs:byte" name="franchiseDiscount" use="optional"/>
+											<xs:attribute type="xs:byte" name="franchiseCharge" use="optional"/>
+											<xs:attribute type="xs:string" name="fixPricePlan" use="optional"/>
+											<xs:attribute type="xs:string" name="fixExternalId" use="optional"/>
+											<xs:attribute type="xs:string" name="extIdDOC1" use="optional"/>
+											<xs:attribute type="xs:string" name="datPricePlan" use="optional"/>
+											<xs:attribute type="xs:float" name="appliedDiscount" use="optional"/>
+											<xs:attribute type="xs:float" name="accountDiscount" use="optional"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute type="xs:float" name="totalAmt"/>
+						<xs:attribute type="xs:short" name="count"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="CREDITS">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="CREDIT" maxOccurs="unbounded" minOccurs="0">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute type="xs:short" name="unitCrId" use="optional"/>
+											<xs:attribute type="xs:int" name="subscrSeq" use="optional"/>
+											<xs:attribute type="xs:byte" name="subscrNoResets" use="optional"/>
+											<xs:attribute type="xs:int" name="subscrNo" use="optional"/>
+											<xs:attribute type="xs:string" name="sfid" use="optional"/>
+											<xs:attribute type="xs:int" name="serv" use="optional"/>
+											<xs:attribute type="xs:byte" name="productLine" use="optional"/>
+											<xs:attribute type="xs:byte" name="productGroup" use="optional"/>
+											<xs:attribute type="xs:float" name="amtCredited" use="optional"/>
+											<xs:attribute type="xs:int" name="techTransDt" use="optional"/>
+											<xs:attribute type="xs:byte" name="techFlag" use="optional"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="INSTACCNT">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="INFO">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="BILL">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute type="xs:date" name="toDt"/>
+														<xs:attribute type="xs:date" name="statementDt"/>
+														<xs:attribute type="xs:int" name="sfid"/>
+														<xs:attribute type="xs:string" name="promotionId"/>
+														<xs:attribute type="xs:byte" name="preNumAccnt"/>
+														<xs:attribute type="xs:string" name="preDocType"/>
+														<xs:attribute type="xs:int" name="numAccnt"/>
+														<xs:attribute type="xs:byte" name="monoLine"/>
+														<xs:attribute type="xs:byte" name="idLang"/>
+														<xs:attribute type="xs:date" name="fromDt"/>
+														<xs:attribute type="xs:byte" name="formatOpt"/>
+														<xs:attribute type="xs:byte" name="emitPlaceID"/>
+														<xs:attribute type="xs:date" name="emitDt"/>
+														<xs:attribute type="xs:date" name="dueDt"/>
+														<xs:attribute type="xs:string" name="docType"/>
+														<xs:attribute type="xs:string" name="descEmitPlace"/>
+														<xs:attribute type="xs:string" name="descEmitCountry"/>
+														<xs:attribute type="xs:float" name="defTaxRate"/>
+														<xs:attribute type="xs:dateTime" name="dateActive"/>
+														<xs:attribute type="xs:byte" name="currCode"/>
+														<xs:attribute type="xs:string" name="currCSap"/>
+														<xs:attribute type="xs:byte" name="courtesyBill"/>
+														<xs:attribute type="xs:byte" name="countryCode"/>
+														<xs:attribute type="xs:string" name="billType"/>
+														<xs:attribute type="xs:byte" name="billSeqNum"/>
+														<xs:attribute type="xs:byte" name="billRefResets"/>
+														<xs:attribute type="xs:string" name="billRef"/>
+														<xs:attribute type="xs:string" name="billPeriod"/>
+														<xs:attribute type="xs:int" name="fcnumAccnt"/>
+														<xs:attribute type="xs:byte" name="accountCategory"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="CUST">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute type="xs:string" name="treat"/>
+														<xs:attribute type="xs:string" name="title"/>
+														<xs:attribute type="xs:byte" name="robinsonFlag"/>
+														<xs:attribute type="xs:string" name="nifCif"/>
+														<xs:attribute type="xs:string" name="name"/>
+														<xs:attribute type="xs:string" name="company"/>
+														<xs:attribute type="xs:string" name="cargo"/>
+														<xs:attribute type="xs:string" name="IdType"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ADDR">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute type="xs:int" name="zip"/>
+														<xs:attribute type="xs:string" name="prov"/>
+														<xs:attribute type="xs:string" name="line3"/>
+														<xs:attribute type="xs:string" name="line2"/>
+														<xs:attribute type="xs:string" name="line1"/>
+														<xs:attribute type="xs:string" name="dest"/>
+														<xs:attribute type="xs:string" name="country"/>
+														<xs:attribute type="xs:string" name="city"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="MK">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute type="xs:string" name="stuffer"/>
+														<xs:attribute type="xs:string" name="segment"/>
+														<xs:attribute type="xs:byte" name="numberVS"/>
+														<xs:attribute type="xs:byte" name="explainFlag"/>
+														<xs:attribute type="xs:string" name="campaign"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="TOT">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute type="xs:byte" name="unitsType"/>
+											<xs:attribute type="xs:int" name="totalUnits"/>
+											<xs:attribute type="xs:float" name="totalDiscount"/>
+											<xs:attribute type="xs:float" name="totalAmt"/>
+											<xs:attribute type="xs:short" name="count"/>
+											<xs:attribute type="xs:float" name="appliedDiscount"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="SERVSUMMARY">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Tot">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="groupTOT" maxOccurs="unbounded" minOccurs="0">
+														<xs:complexType>
+															<xs:simpleContent>
+																<xs:extension base="xs:string">
+																	<xs:attribute type="xs:float" name="totalUsg" use="optional"/>
+																	<xs:attribute type="xs:float" name="totalChrg" use="optional"/>
+																	<xs:attribute type="xs:float" name="totalAmt" use="optional"/>
+																	<xs:attribute type="xs:byte" name="groupId" use="optional"/>
+																	<xs:attribute type="xs:string" name="groupDesc" use="optional"/>
+																</xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute type="xs:float" name="totalDiscount"/>
+												<xs:attribute type="xs:float" name="totalAmt"/>
+												<xs:attribute type="xs:short" name="count"/>
+												<xs:attribute type="xs:float" name="appliedDiscount"/>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="RESCHA">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="TOT">
+														<xs:complexType>
+															<xs:simpleContent>
+																<xs:extension base="xs:string">
+																	<xs:attribute type="xs:float" name="totalDiscount"/>
+																	<xs:attribute type="xs:float" name="totalAmt"/>
+																	<xs:attribute type="xs:short" name="count"/>
+																	<xs:attribute type="xs:float" name="appliedDiscount"/>
+																</xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="RESGROUP" maxOccurs="unbounded" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="TOT">
+																	<xs:complexType>
+																		<xs:simpleContent>
+																			<xs:extension base="xs:string">
+																				<xs:attribute type="xs:float" name="totalDiscount" use="optional"/>
+																				<xs:attribute type="xs:float" name="totalAmt" use="optional"/>
+																				<xs:attribute type="xs:short" name="count" use="optional"/>
+																				<xs:attribute type="xs:float" name="appliedDiscount" use="optional"/>
+																			</xs:extension>
+																		</xs:simpleContent>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="Rc" maxOccurs="unbounded" minOccurs="0">
+																	<xs:complexType>
+																		<xs:simpleContent>
+																			<xs:extension base="xs:string">
+																				<xs:attribute type="xs:float" name="disc" use="optional"/>
+																				<xs:attribute type="xs:short" name="count" use="optional"/>
+																				<xs:attribute type="xs:float" name="amt" use="optional"/>
+																				<xs:attribute type="xs:string" name="Literal" use="optional"/>
+																			</xs:extension>
+																		</xs:simpleContent>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="NRC">
+																	<xs:complexType>
+																		<xs:simpleContent>
+																			<xs:extension base="xs:string">
+																				<xs:attribute type="xs:float" name="disc" use="optional"/>
+																				<xs:attribute type="xs:byte" name="count" use="optional"/>
+																				<xs:attribute type="xs:float" name="amt" use="optional"/>
+																				<xs:attribute type="xs:string" name="Literal" use="optional"/>
+																			</xs:extension>
+																		</xs:simpleContent>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="RESDISC" maxOccurs="unbounded" minOccurs="0">
+																	<xs:complexType>
+																		<xs:simpleContent>
+																			<xs:extension base="xs:string">
+																				<xs:attribute type="xs:float" name="totalDisc" use="optional"/>
+																				<xs:attribute type="xs:float" name="totalAmt" use="optional"/>
+																				<xs:attribute type="xs:string" name="desc" use="optional"/>
+																				<xs:attribute type="xs:byte" name="count" use="optional"/>
+																				<xs:attribute type="xs:short" name="discountId" use="optional"/>
+																			</xs:extension>
+																		</xs:simpleContent>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+															<xs:attribute type="xs:byte" name="groupId" use="optional"/>
+															<xs:attribute type="xs:string" name="groupDesc" use="optional"/>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="RESUSG">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="TOT">
+														<xs:complexType>
+															<xs:simpleContent>
+																<xs:extension base="xs:string">
+																	<xs:attribute type="xs:byte" name="totalUnits"/>
+																	<xs:attribute type="xs:byte" name="totalDiscount"/>
+																	<xs:attribute type="xs:float" name="totalAmt"/>
+																	<xs:attribute type="xs:short" name="count"/>
+																	<xs:attribute type="xs:float" name="appliedDiscount"/>
+																</xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="RESGROUP" maxOccurs="unbounded" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="TOT">
+																	<xs:complexType>
+																		<xs:simpleContent>
+																			<xs:extension base="xs:string">
+																				<xs:attribute type="xs:int" name="totalUnits" use="optional"/>
+																				<xs:attribute type="xs:byte" name="totalDiscount" use="optional"/>
+																				<xs:attribute type="xs:float" name="totalAmt" use="optional"/>
+																				<xs:attribute type="xs:short" name="count" use="optional"/>
+																				<xs:attribute type="xs:float" name="appliedDiscount" use="optional"/>
+																			</xs:extension>
+																		</xs:simpleContent>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="RESTYPE" maxOccurs="unbounded" minOccurs="0">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="TOT">
+																				<xs:complexType>
+																					<xs:simpleContent>
+																						<xs:extension base="xs:string">
+																							<xs:attribute type="xs:short" name="unitsType" use="optional"/>
+																							<xs:attribute type="xs:int" name="totalUnits" use="optional"/>
+																							<xs:attribute type="xs:float" name="totalAmt" use="optional"/>
+																							<xs:attribute type="xs:short" name="count" use="optional"/>
+																							<xs:attribute type="xs:float" name="appliedDiscount" use="optional"/>
+																							<xs:attribute type="xs:string" name="liDura" use="optional"/>
+																						</xs:extension>
+																					</xs:simpleContent>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																		<xs:attribute type="xs:short" name="idTipo" use="optional"/>
+																		<xs:attribute type="xs:string" name="descTipo" use="optional"/>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+															<xs:attribute type="xs:byte" name="groupID" use="optional"/>
+															<xs:attribute type="xs:string" name="groupDesc" use="optional"/>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="NOTAXSUMM">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="LINE" maxOccurs="unbounded" minOccurs="0">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute type="xs:float" name="total" use="optional"/>
+														<xs:attribute type="xs:string" name="time" use="optional"/>
+														<xs:attribute type="xs:int" name="serv" use="optional"/>
+														<xs:attribute type="xs:string" name="product" use="optional"/>
+														<xs:attribute type="xs:byte" name="isVoiceUsage" use="optional"/>
+														<xs:attribute type="xs:string" name="extIdDOC1" use="optional"/>
+														<xs:attribute type="xs:string" name="desc" use="optional"/>
+														<xs:attribute type="xs:date" name="date" use="optional"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute type="xs:float" name="total"/>
+									<xs:attribute type="xs:byte" name="appliedDiscount"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="SERV" maxOccurs="unbounded" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="INFO">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="SERV">
+														<xs:complexType>
+															<xs:simpleContent>
+																<xs:extension base="xs:string">
+																	<xs:attribute type="xs:byte" name="vpnFlag" use="optional"/>
+																	<xs:attribute type="xs:byte" name="techFlag" use="optional"/>
+																	<xs:attribute type="xs:int" name="subscrSeq" use="optional"/>
+																	<xs:attribute type="xs:string" name="sfid" use="optional"/>
+																	<xs:attribute type="xs:string" name="promoID" use="optional"/>
+																	<xs:attribute type="xs:byte" name="productLineId" use="optional"/>
+																	<xs:attribute type="xs:byte" name="preselInd" use="optional"/>
+																	<xs:attribute type="xs:byte" name="omnia" use="optional"/>
+																	<xs:attribute type="xs:byte" name="maskNum" use="optional"/>
+																	<xs:attribute type="xs:byte" name="maskFlag" use="optional"/>
+																	<xs:attribute type="xs:byte" name="langCode" use="optional"/>
+																	<xs:attribute type="xs:date" name="inactiveDt" use="optional"/>
+																	<xs:attribute type="xs:byte" name="formatOpt" use="optional"/>
+																	<xs:attribute type="xs:string" name="fixNum" use="optional"/>
+																	<xs:attribute type="xs:string" name="fixCommID" use="optional"/>
+																	<xs:attribute type="xs:int" name="externalID" use="optional"/>
+																	<xs:attribute type="xs:string" name="extIdDOC1" use="optional"/>
+																	<xs:attribute type="xs:int" name="ext" use="optional"/>
+																	<xs:attribute type="xs:short" name="element_id" use="optional"/>
+																	<xs:attribute type="xs:string" name="datElementID" use="optional"/>
+																	<xs:attribute type="xs:string" name="datCommID" use="optional"/>
+																	<xs:attribute type="xs:byte" name="courtBill" use="optional"/>
+																	<xs:attribute type="xs:string" name="contractInd" use="optional"/>
+																	<xs:attribute type="xs:string" name="commID" use="optional"/>
+																	<xs:attribute type="xs:byte" name="bagServ" use="optional"/>
+																	<xs:attribute type="xs:date" name="activeDt" use="optional"/>
+																	<xs:attribute type="xs:string" name="VoicePricePlan" use="optional"/>
+																	<xs:attribute type="xs:string" name="DataPricePlan" use="optional"/>
+																	<xs:attribute type="xs:byte" name="subscrNoResets" use="optional"/>
+																	<xs:attribute type="xs:int" name="subscrNo" use="optional"/>
+																	<xs:attribute type="xs:string" name="FixPricePlan" use="optional"/>
+																	<xs:attribute type="xs:date" name="techTransDt" use="optional"/>
+																</xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="BILL">
+														<xs:complexType>
+															<xs:simpleContent>
+																<xs:extension base="xs:string">
+																	<xs:attribute type="xs:date" name="toDt" use="optional"/>
+																	<xs:attribute type="xs:date" name="statementDt" use="optional"/>
+																	<xs:attribute type="xs:int" name="sfid" use="optional"/>
+																	<xs:attribute type="xs:string" name="promotionId" use="optional"/>
+																	<xs:attribute type="xs:byte" name="preNumAccnt" use="optional"/>
+																	<xs:attribute type="xs:string" name="preDocType" use="optional"/>
+																	<xs:attribute type="xs:int" name="numAccnt" use="optional"/>
+																	<xs:attribute type="xs:short" name="monoLine" use="optional"/>
+																	<xs:attribute type="xs:byte" name="idLang" use="optional"/>
+																	<xs:attribute type="xs:date" name="fromDt" use="optional"/>
+																	<xs:attribute type="xs:byte" name="formatOpt" use="optional"/>
+																	<xs:attribute type="xs:byte" name="emitPlaceID" use="optional"/>
+																	<xs:attribute type="xs:date" name="emitDt" use="optional"/>
+																	<xs:attribute type="xs:date" name="dueDt" use="optional"/>
+																	<xs:attribute type="xs:string" name="docType" use="optional"/>
+																	<xs:attribute type="xs:string" name="descEmitPlace" use="optional"/>
+																	<xs:attribute type="xs:string" name="descEmitCountry" use="optional"/>
+																	<xs:attribute type="xs:float" name="defTaxRate" use="optional"/>
+																	<xs:attribute type="xs:dateTime" name="dateActive" use="optional"/>
+																	<xs:attribute type="xs:byte" name="currCode" use="optional"/>
+																	<xs:attribute type="xs:string" name="currCSap" use="optional"/>
+																	<xs:attribute type="xs:byte" name="countryCode" use="optional"/>
+																	<xs:attribute type="xs:string" name="billType" use="optional"/>
+																	<xs:attribute type="xs:byte" name="billSeqNum" use="optional"/>
+																	<xs:attribute type="xs:byte" name="billRefResets" use="optional"/>
+																	<xs:attribute type="xs:string" name="billRef" use="optional"/>
+																	<xs:attribute type="xs:string" name="billPeriod" use="optional"/>
+																	<xs:attribute type="xs:int" name="fcnumAccnt" use="optional"/>
+																	<xs:attribute type="xs:byte" name="accountCategory" use="optional"/>
+																</xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="CUST">
+														<xs:complexType>
+															<xs:simpleContent>
+																<xs:extension base="xs:string">
+																	<xs:attribute type="xs:string" name="treat" use="optional"/>
+																	<xs:attribute type="xs:string" name="title" use="optional"/>
+																	<xs:attribute type="xs:byte" name="robinsonFlag" use="optional"/>
+																	<xs:attribute type="xs:string" name="nifCif" use="optional"/>
+																	<xs:attribute type="xs:string" name="name" use="optional"/>
+																	<xs:attribute type="xs:string" name="company" use="optional"/>
+																	<xs:attribute type="xs:string" name="cargo" use="optional"/>
+																	<xs:attribute type="xs:string" name="IdType" use="optional"/>
+																</xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="ADDR">
+														<xs:complexType>
+															<xs:simpleContent>
+																<xs:extension base="xs:string">
+																	<xs:attribute type="xs:int" name="zip" use="optional"/>
+																	<xs:attribute type="xs:string" name="prov" use="optional"/>
+																	<xs:attribute type="xs:string" name="line3" use="optional"/>
+																	<xs:attribute type="xs:string" name="line2" use="optional"/>
+																	<xs:attribute type="xs:string" name="line1" use="optional"/>
+																	<xs:attribute type="xs:string" name="dest" use="optional"/>
+																	<xs:attribute type="xs:string" name="country" use="optional"/>
+																	<xs:attribute type="xs:string" name="city" use="optional"/>
+																</xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="TOT">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute type="xs:byte" name="unitsType" use="optional"/>
+														<xs:attribute type="xs:int" name="totalUnits" use="optional"/>
+														<xs:attribute type="xs:float" name="totalDiscount" use="optional"/>
+														<xs:attribute type="xs:float" name="totalAmt" use="optional"/>
+														<xs:attribute type="xs:short" name="count" use="optional"/>
+														<xs:attribute type="xs:float" name="appliedDiscount" use="optional"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="CHARGES">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="TOT">
+														<xs:complexType>
+															<xs:simpleContent>
+																<xs:extension base="xs:string">
+																	<xs:attribute type="xs:byte" name="unitsType" use="optional"/>
+																	<xs:attribute type="xs:byte" name="totalUnits" use="optional"/>
+																	<xs:attribute type="xs:float" name="totalDiscount" use="optional"/>
+																	<xs:attribute type="xs:float" name="totalAmt" use="optional"/>
+																	<xs:attribute type="xs:byte" name="count" use="optional"/>
+																	<xs:attribute type="xs:float" name="appliedDiscount" use="optional"/>
+																</xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="GRUPO" maxOccurs="unbounded" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="Tot">
+																	<xs:complexType>
+																		<xs:simpleContent>
+																			<xs:extension base="xs:string">
+																				<xs:attribute type="xs:byte" name="unitsType" use="optional"/>
+																				<xs:attribute type="xs:byte" name="totalUnits" use="optional"/>
+																				<xs:attribute type="xs:float" name="totalDiscount" use="optional"/>
+																				<xs:attribute type="xs:float" name="totalAmt" use="optional"/>
+																				<xs:attribute type="xs:byte" name="count" use="optional"/>
+																				<xs:attribute type="xs:float" name="appliedDiscount" use="optional"/>
+																			</xs:extension>
+																		</xs:simpleContent>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="RCS">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="TOT">
+																				<xs:complexType>
+																					<xs:simpleContent>
+																						<xs:extension base="xs:string">
+																							<xs:attribute type="xs:byte" name="unitsType" use="optional"/>
+																							<xs:attribute type="xs:byte" name="totalUnits" use="optional"/>
+																							<xs:attribute type="xs:float" name="totalDiscount" use="optional"/>
+																							<xs:attribute type="xs:float" name="totalAmt" use="optional"/>
+																							<xs:attribute type="xs:byte" name="count" use="optional"/>
+																							<xs:attribute type="xs:float" name="appliedDiscount" use="optional"/>
+																						</xs:extension>
+																					</xs:simpleContent>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element name="RC" maxOccurs="unbounded" minOccurs="0">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="CONT">
+																							<xs:complexType>
+																								<xs:simpleContent>
+																									<xs:extension base="xs:string">
+																										<xs:attribute type="xs:string" name="taxSap" use="optional"/>
+																										<xs:attribute type="xs:float" name="tax" use="optional"/>
+																										<xs:attribute type="xs:string" name="sfid" use="optional"/>
+																										<xs:attribute type="xs:float" name="percent" use="optional"/>
+																										<xs:attribute type="xs:byte" name="flagComission" use="optional"/>
+																										<xs:attribute type="xs:float" name="disc" use="optional"/>
+																										<xs:attribute type="xs:string" name="contAcctDesc" use="optional"/>
+																										<xs:attribute type="xs:int" name="contAcct" use="optional"/>
+																										<xs:attribute type="xs:float" name="amt" use="optional"/>
+																										<xs:attribute type="xs:long" name="accalias" use="optional"/>
+																									</xs:extension>
+																								</xs:simpleContent>
+																							</xs:complexType>
+																						</xs:element>
+																					</xs:sequence>
+																					<xs:attribute type="xs:byte" name="units" use="optional"/>
+																					<xs:attribute type="xs:date" name="toDt" use="optional"/>
+																					<xs:attribute type="xs:byte" name="suppServ" use="optional"/>
+																					<xs:attribute type="xs:int" name="subscr_no" use="optional"/>
+																					<xs:attribute type="xs:byte" name="subscrNoResets" use="optional"/>
+																					<xs:attribute type="xs:byte" name="productLineId" use="optional"/>
+																					<xs:attribute type="xs:float" name="percent" use="optional"/>
+																					<xs:attribute type="xs:date" name="fromDt" use="optional"/>
+																					<xs:attribute type="xs:byte" name="franchFlag" use="optional"/>
+																					<xs:attribute type="xs:short" name="elementId" use="optional"/>
+																					<xs:attribute type="xs:string" name="conceptType" use="optional"/>
+																					<xs:attribute type="xs:string" name="commId" use="optional"/>
+																					<xs:attribute type="xs:byte" name="aggrFlag" use="optional"/>
+																					<xs:attribute type="xs:float" name="tax" use="optional"/>
+																					<xs:attribute type="xs:float" name="discPercent" use="optional"/>
+																					<xs:attribute type="xs:float" name="disc" use="optional"/>
+																					<xs:attribute type="xs:float" name="amt" use="optional"/>
+																					<xs:attribute type="xs:byte" name="draw" use="optional"/>
+																					<xs:attribute type="xs:string" name="desc" use="optional"/>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="NRCS" minOccurs="0">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="TOT">
+																				<xs:complexType>
+																					<xs:simpleContent>
+																						<xs:extension base="xs:string">
+																							<xs:attribute type="xs:byte" name="unitsType"/>
+																							<xs:attribute type="xs:byte" name="totalUnits"/>
+																							<xs:attribute type="xs:float" name="totalDiscount"/>
+																							<xs:attribute type="xs:float" name="totalAmt"/>
+																							<xs:attribute type="xs:byte" name="count"/>
+																							<xs:attribute type="xs:float" name="appliedDiscount"/>
+																						</xs:extension>
+																					</xs:simpleContent>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element name="NRC" maxOccurs="unbounded" minOccurs="0">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="CONT">
+																							<xs:complexType>
+																								<xs:simpleContent>
+																									<xs:extension base="xs:string">
+																										<xs:attribute type="xs:string" name="taxSap" use="optional"/>
+																										<xs:attribute type="xs:float" name="tax" use="optional"/>
+																										<xs:attribute type="xs:string" name="sfid" use="optional"/>
+																										<xs:attribute type="xs:float" name="percent" use="optional"/>
+																										<xs:attribute type="xs:byte" name="flagComission" use="optional"/>
+																										<xs:attribute type="xs:float" name="disc" use="optional"/>
+																										<xs:attribute type="xs:string" name="contAcctDesc" use="optional"/>
+																										<xs:attribute type="xs:int" name="contAcct" use="optional"/>
+																										<xs:attribute type="xs:float" name="amt" use="optional"/>
+																										<xs:attribute type="xs:long" name="accalias" use="optional"/>
+																									</xs:extension>
+																								</xs:simpleContent>
+																							</xs:complexType>
+																						</xs:element>
+																					</xs:sequence>
+																					<xs:attribute type="xs:date" name="transDt" use="optional"/>
+																					<xs:attribute type="xs:dateTime" name="trackingDt" use="optional"/>
+																					<xs:attribute type="xs:byte" name="suppServ" use="optional"/>
+																					<xs:attribute type="xs:byte" name="productLineId" use="optional"/>
+																					<xs:attribute type="xs:short" name="nrcID" use="optional"/>
+																					<xs:attribute type="xs:string" name="conceptType" use="optional"/>
+																					<xs:attribute type="xs:string" name="annot" use="optional"/>
+																					<xs:attribute type="xs:byte" name="subscrNoResets" use="optional"/>
+																					<xs:attribute type="xs:int" name="subscrNo" use="optional"/>
+																					<xs:attribute type="xs:float" name="tax" use="optional"/>
+																					<xs:attribute type="xs:float" name="discPercent" use="optional"/>
+																					<xs:attribute type="xs:float" name="disc" use="optional"/>
+																					<xs:attribute type="xs:float" name="amt" use="optional"/>
+																					<xs:attribute type="xs:byte" name="draw" use="optional"/>
+																					<xs:attribute type="xs:string" name="desc" use="optional"/>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="DISCS" minOccurs="0">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="TOT">
+																				<xs:complexType>
+																					<xs:simpleContent>
+																						<xs:extension base="xs:string">
+																							<xs:attribute type="xs:byte" name="unitsType"/>
+																							<xs:attribute type="xs:byte" name="totalUnits"/>
+																							<xs:attribute type="xs:float" name="totalDiscount"/>
+																							<xs:attribute type="xs:float" name="totalAmt"/>
+																							<xs:attribute type="xs:byte" name="count"/>
+																						</xs:extension>
+																					</xs:simpleContent>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element name="DISC">
+																				<xs:complexType>
+																					<xs:simpleContent>
+																						<xs:extension base="xs:string">
+																							<xs:attribute type="xs:byte" name="suppServ"/>
+																							<xs:attribute type="xs:date" name="startDt"/>
+																							<xs:attribute type="xs:byte" name="productLineId"/>
+																							<xs:attribute type="xs:byte" name="franchFlag"/>
+																							<xs:attribute type="xs:float" name="federalTax"/>
+																							<xs:attribute type="xs:short" name="discountId"/>
+																							<xs:attribute type="xs:byte" name="discType"/>
+																							<xs:attribute type="xs:short" name="billRow"/>
+																							<xs:attribute type="xs:float" name="baseAmt"/>
+																							<xs:attribute type="xs:byte" name="subscrNoResets"/>
+																							<xs:attribute type="xs:int" name="subscrNo"/>
+																							<xs:attribute type="xs:byte" name="productLineFPGD"/>
+																							<xs:attribute type="xs:byte" name="productGroupID"/>
+																							<xs:attribute type="xs:byte" name="icbAllow"/>
+																							<xs:attribute type="xs:short" name="descriptionCode"/>
+																							<xs:attribute type="xs:float" name="tax"/>
+																							<xs:attribute type="xs:float" name="discPercent"/>
+																							<xs:attribute type="xs:float" name="disc"/>
+																							<xs:attribute type="xs:float" name="amt"/>
+																							<xs:attribute type="xs:byte" name="draw"/>
+																							<xs:attribute type="xs:string" name="desc"/>
+																						</xs:extension>
+																					</xs:simpleContent>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+															<xs:attribute type="xs:byte" name="groupID" use="optional"/>
+															<xs:attribute type="xs:string" name="groupDesc" use="optional"/>
+															<xs:attribute type="xs:byte" name="draw" use="optional"/>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="USAGE" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="TOT">
+														<xs:complexType>
+															<xs:simpleContent>
+																<xs:extension base="xs:string">
+																	<xs:attribute type="xs:byte" name="unitsType" use="optional"/>
+																	<xs:attribute type="xs:int" name="totalUnits" use="optional"/>
+																	<xs:attribute type="xs:byte" name="totalDiscount" use="optional"/>
+																	<xs:attribute type="xs:float" name="totalAmt" use="optional"/>
+																	<xs:attribute type="xs:short" name="count" use="optional"/>
+																	<xs:attribute type="xs:float" name="appliedDiscount" use="optional"/>
+																</xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="GROUP" maxOccurs="unbounded" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="TOT">
+																	<xs:complexType>
+																		<xs:simpleContent>
+																			<xs:extension base="xs:string">
+																				<xs:attribute type="xs:short" name="unitsType" use="optional"/>
+																				<xs:attribute type="xs:int" name="totalUnits" use="optional"/>
+																				<xs:attribute type="xs:byte" name="totalDiscount" use="optional"/>
+																				<xs:attribute type="xs:float" name="totalAmt" use="optional"/>
+																				<xs:attribute type="xs:short" name="count" use="optional"/>
+																				<xs:attribute type="xs:float" name="appliedDiscount" use="optional"/>
+																			</xs:extension>
+																		</xs:simpleContent>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="TYPE" maxOccurs="unbounded" minOccurs="0">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="TOT">
+																				<xs:complexType>
+																					<xs:simpleContent>
+																						<xs:extension base="xs:string">
+																							<xs:attribute type="xs:short" name="unitsType" use="optional"/>
+																							<xs:attribute type="xs:int" name="totalUnits" use="optional"/>
+																							<xs:attribute type="xs:float" name="totalAmt" use="optional"/>
+																							<xs:attribute type="xs:short" name="count" use="optional"/>
+																							<xs:attribute type="xs:float" name="appliedDiscount" use="optional"/>
+																							<xs:attribute type="xs:string" name="liDura" use="optional"/>
+																						</xs:extension>
+																					</xs:simpleContent>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element name="CDR" maxOccurs="unbounded" minOccurs="0">
+																				<xs:complexType>
+																					<xs:simpleContent>
+																						<xs:extension base="xs:string">
+																							<xs:attribute type="xs:string" name="unitsType3" use="optional"/>
+																							<xs:attribute type="xs:string" name="unitsType2" use="optional"/>
+																							<xs:attribute type="xs:string" name="unitsType1" use="optional"/>
+																							<xs:attribute type="xs:string" name="units2" use="optional"/>
+																							<xs:attribute type="xs:string" name="units1" use="optional"/>
+																							<xs:attribute type="xs:string" name="servType" use="optional"/>
+																							<xs:attribute type="xs:string" name="promoID" use="optional"/>
+																							<xs:attribute type="xs:byte" name="flagBrooklin" use="optional"/>
+																							<xs:attribute type="xs:string" name="eventID" use="optional"/>
+																							<xs:attribute type="xs:short" name="unitsType" use="optional"/>
+																							<xs:attribute type="xs:short" name="unitsCredited" use="optional"/>
+																							<xs:attribute type="xs:int" name="units" use="optional"/>
+																							<xs:attribute type="xs:short" name="typeIdUsg" use="optional"/>
+																							<xs:attribute type="xs:dateTime" name="transDt" use="optional"/>
+																							<xs:attribute type="xs:byte" name="thirdUnits" use="optional"/>
+																							<xs:attribute type="xs:int" name="targetId" use="optional"/>
+																							<xs:attribute type="xs:long" name="target" use="optional"/>
+																							<xs:attribute type="xs:int" name="secondUnits" use="optional"/>
+																							<xs:attribute type="xs:string" name="ratePeriod" use="optional"/>
+																							<xs:attribute type="xs:short" name="provId" use="optional"/>
+																							<xs:attribute type="xs:byte" name="productLineId" use="optional"/>
+																							<xs:attribute type="xs:int" name="primaryUnits" use="optional"/>
+																							<xs:attribute type="xs:byte" name="originID" use="optional"/>
+																							<xs:attribute type="xs:long" name="origin" use="optional"/>
+																							<xs:attribute type="xs:byte" name="isReal" use="optional"/>
+																							<xs:attribute type="xs:byte" name="extIDType" use="optional"/>
+																							<xs:attribute type="xs:long" name="extID" use="optional"/>
+																							<xs:attribute type="xs:short" name="element_id" use="optional"/>
+																							<xs:attribute type="xs:byte" name="draw" use="optional"/>
+																							<xs:attribute type="xs:float" name="discountAmt" use="optional"/>
+																							<xs:attribute type="xs:byte" name="corridorID" use="optional"/>
+																							<xs:attribute type="xs:string" name="constTypeSAP" use="optional"/>
+																							<xs:attribute type="xs:string" name="consTypeDWH" use="optional"/>
+																							<xs:attribute type="xs:byte" name="consType" use="optional"/>
+																							<xs:attribute type="xs:string" name="cdrType" use="optional"/>
+																							<xs:attribute type="xs:short" name="billUnitsType" use="optional"/>
+																							<xs:attribute type="xs:float" name="baseAmt" use="optional"/>
+																							<xs:attribute type="xs:string" name="auxType2" use="optional"/>
+																							<xs:attribute type="xs:string" name="auxType1" use="optional"/>
+																							<xs:attribute type="xs:float" name="amtCredited" use="optional"/>
+																							<xs:attribute type="xs:float" name="amt" use="optional"/>
+																							<xs:attribute type="xs:byte" name="aggrUsageId" use="optional"/>
+																							<xs:attribute type="xs:byte" name="maskNum" use="optional"/>
+																							<xs:attribute type="xs:byte" name="maskFlag" use="optional"/>
+																							<xs:attribute type="xs:string" name="liTime" use="optional"/>
+																							<xs:attribute type="xs:string" name="liRealDura" use="optional"/>
+																							<xs:attribute type="xs:string" name="liRate" use="optional"/>
+																							<xs:attribute type="xs:string" name="liDura" use="optional"/>
+																							<xs:attribute type="xs:string" name="liDest2" use="optional"/>
+																							<xs:attribute type="xs:string" name="liDest1" use="optional"/>
+																							<xs:attribute type="xs:string" name="liDate" use="optional"/>
+																							<xs:attribute type="xs:string" name="CodDest2" use="optional"/>
+																							<xs:attribute type="xs:short" name="unitCRID" use="optional"/>
+																							<xs:attribute type="xs:byte" name="subscrNoResets" use="optional"/>
+																							<xs:attribute type="xs:int" name="subscrNo" use="optional"/>
+																							<xs:attribute type="xs:byte" name="productGroupId" use="optional"/>
+																							<xs:attribute type="xs:short" name="idTipo" use="optional"/>
+																							<xs:attribute type="xs:string" name="conceptType" use="optional"/>
+																							<xs:attribute type="xs:string" name="url" use="optional"/>
+																						</xs:extension>
+																					</xs:simpleContent>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element name="AGGR" maxOccurs="unbounded" minOccurs="0">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="CONT">
+																							<xs:complexType>
+																								<xs:simpleContent>
+																									<xs:extension base="xs:string">
+																										<xs:attribute type="xs:string" name="taxSap" use="optional"/>
+																										<xs:attribute type="xs:string" name="sfid" use="optional"/>
+																										<xs:attribute type="xs:float" name="percent" use="optional"/>
+																										<xs:attribute type="xs:byte" name="flagComission" use="optional"/>
+																										<xs:attribute type="xs:float" name="disc" use="optional"/>
+																										<xs:attribute type="xs:string" name="contAcctDesc" use="optional"/>
+																										<xs:attribute type="xs:int" name="contAcct" use="optional"/>
+																										<xs:attribute type="xs:float" name="amt" use="optional"/>
+																										<xs:attribute type="xs:long" name="accalias" use="optional"/>
+																									</xs:extension>
+																								</xs:simpleContent>
+																							</xs:complexType>
+																						</xs:element>
+																					</xs:sequence>
+																					<xs:attribute type="xs:short" name="typeIdUsg" use="optional"/>
+																					<xs:attribute type="xs:short" name="elementId" use="optional"/>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																		<xs:attribute type="xs:short" name="idTipo" use="optional"/>
+																		<xs:attribute type="xs:string" name="descTipo" use="optional"/>
+																		<xs:attribute type="xs:byte" name="draw" use="optional"/>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+															<xs:attribute type="xs:byte" name="groupID" use="optional"/>
+															<xs:attribute type="xs:string" name="groupDesc" use="optional"/>
+															<xs:attribute type="xs:byte" name="draw" use="optional"/>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute type="xs:byte" name="draw" use="optional"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

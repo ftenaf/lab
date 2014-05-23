@@ -1,0 +1,750 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" 
+            jaxb:version="1.0"
+            xmlns:hj="http://hyperjaxb3.jvnet.org/ejb/schemas/customizations"
+            xmlns:orm="http://java.sun.com/xml/ns/persistence/orm"
+            jaxb:extensionBindingPrefixes="hj orm">
+    <xsd:annotation>
+        <xsd:appinfo>
+            <jaxb:globalBindings generateIsSetMethod="false" optionalProperty="primitive"/>
+            <jaxb:schemaBindings>
+                <jaxb:package name="es.tena.vodafone.factura"/>
+            </jaxb:schemaBindings>
+            <!--jaxb:bindings node="//xsd:complexType[@name='TOT_Type']">
+                <jaxb:class ref="es.tena.vodafone.facturas.TOT_Type_"/>
+            </jaxb:bindings>
+            <jaxb:bindings node=".//xsd:element[@name='TOT']">
+                <jaxb:class ref="es.tena.vodafone.facturas.TOT_Type_"/>
+            </jaxb:bindings-->
+            
+        </xsd:appinfo>
+    </xsd:annotation>
+  
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            Facturas de vodafone
+        </xsd:documentation>
+    </xsd:annotation>
+  
+    <xsd:element name="INVOICE" type="INVOICE_Type" />
+    
+    <xsd:complexType name="INSTACCNT_Type">
+        <xsd:sequence>
+            <xsd:element name="INFO" type="INFO_Type" />
+            <xsd:element name="TOT" type="TOT_Type" />
+            <xsd:element name="SERVSUMMARY" type="SERVSUMMARY_Type" />
+            <xsd:element name="NOTAXSUMM" type="NOTAXSUMM_Type" />                                
+            <xsd:element name="SERV" maxOccurs="unbounded" minOccurs="0" type="SERV_Type" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="INVOICE_Type">
+        <xsd:sequence>
+            <xsd:element name="INFO" type="INFO_Type" />
+            <xsd:element name="TOT" type="TOT_Type" />
+            <xsd:element name="SERVSUMMARY" type="SERVSUMMARY_Type" />
+            <xsd:element name="ACCNTCHARGES" type="ACCNTCHARGES_Type" />
+            <xsd:element name="NOTAXSUMM" type="NOTAXSUMM_Type" />
+            <xsd:element name="SERVTOTALSUMM" type="SERVTOTALSUMM_Type" />
+            <xsd:element name="CREDITS" type="CREDITS_Type" />
+            <xsd:element name="INSTACCNT" type="INSTACCNT_Type" />
+        </xsd:sequence>
+    </xsd:complexType>
+   
+
+    <xsd:complexType name="BILL_Type">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute type="xsd:date" name="toDt"/>
+                <xsd:attribute type="xsd:date" name="statementDt"/>
+                <xsd:attribute type="xsd:int" name="sfid"/>
+                <xsd:attribute type="xsd:string" name="promotionId"/>
+                <xsd:attribute type="xsd:byte" name="preNumAccnt"/>
+                <xsd:attribute type="xsd:string" name="preDocType"/>
+                <xsd:attribute type="xsd:int" name="numAccnt"/>
+                <xsd:attribute type="xsd:short" name="monoLine"/>
+                <xsd:attribute type="xsd:byte" name="idLang"/>
+                <xsd:attribute type="xsd:date" name="fromDt"/>
+                <xsd:attribute type="xsd:byte" name="formatOpt"/>
+                <xsd:attribute type="xsd:byte" name="emitPlaceID"/>
+                <xsd:attribute type="xsd:date" name="emitDt"/>
+                <xsd:attribute type="xsd:date" name="dueDt"/>
+                <xsd:attribute type="xsd:string" name="docType"/>
+                <xsd:attribute type="xsd:string" name="descEmitPlace"/>
+                <xsd:attribute type="xsd:string" name="descEmitCountry"/>
+                <xsd:attribute type="xsd:float" name="defTaxRate"/>
+                <xsd:attribute type="xsd:dateTime" name="dateActive"/>
+                <xsd:attribute type="xsd:byte" name="currCode"/>
+                <xsd:attribute type="xsd:string" name="currCSap"/>
+                <xsd:attribute type="xsd:byte" name="courtesyBill"/>
+                <xsd:attribute type="xsd:byte" name="countryCode"/>
+                <xsd:attribute type="xsd:string" name="billType"/>
+                <xsd:attribute type="xsd:byte" name="billSeqNum"/>
+                <xsd:attribute type="xsd:byte" name="billRefResets"/>
+                <xsd:attribute type="xsd:string" name="billRef"/>
+                    <!--xsd:annotation>
+                        <xsd:appinfo>
+                            <hj:id/>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute-->
+                <xsd:attribute type="xsd:string" name="billPeriod"/>
+                <xsd:attribute type="xsd:int" name="fcnumAccnt"/>
+                <xsd:attribute type="xsd:byte" name="accountCategory"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+  
+    <xsd:complexType name="CUST_Type">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute type="xsd:string" name="treat"/>
+                <xsd:attribute type="xsd:string" name="title"/>
+                <xsd:attribute type="xsd:byte"   name="robinsonFlag"/>
+                <xsd:attribute type="xsd:string" name="nifCif"/>
+                <xsd:attribute type="xsd:string" name="name"/>
+                <xsd:attribute type="xsd:string" name="company"/>
+                <xsd:attribute type="xsd:string" name="cargo"/>
+                <xsd:attribute type="xsd:string" name="IdType"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ADDR_Type">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute type="xsd:int"    name="zip"/>
+                <xsd:attribute type="xsd:string" name="prov"/>
+                <xsd:attribute type="xsd:string" name="line3"/>
+                <xsd:attribute type="xsd:string" name="line2"/>
+                <xsd:attribute type="xsd:string" name="line1"/>
+                <xsd:attribute type="xsd:string" name="dest"/>
+                <xsd:attribute type="xsd:string" name="country"/>
+                <xsd:attribute type="xsd:string" name="city"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="PAY_Type">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute type="xsd:int" name="reference"/>
+                <xsd:attribute type="xsd:string" name="payMethodSap"/>
+                <xsd:attribute type="xsd:string" name="payMethodDoc1Desc"/>
+                <xsd:attribute type="xsd:byte" name="payMethodDoc1"/>
+                <xsd:attribute type="xsd:byte" name="payMethod"/>
+                <xsd:attribute type="xsd:string" name="payConditionSap"/>
+                <xsd:attribute type="xsd:string" name="controlDigit"/>
+                <xsd:attribute type="xsd:string" name="cardCarrier"/>
+                <xsd:attribute type="xsd:string" name="cardAcount"/>
+                <xsd:attribute type="xsd:string" name="bankSortCode"/>
+                <xsd:attribute type="xsd:string" name="bankName"/>
+                <xsd:attribute type="xsd:string" name="bankCode"/>
+                <xsd:attribute type="xsd:string" name="bankAgencyCode"/>
+                <xsd:attribute type="xsd:string" name="bankAccNum"/>
+                <xsd:attribute type="xsd:string" name="bankAccName"/>
+                <xsd:attribute type="xsd:string" name="agencyCode"/>
+                <xsd:attribute type="xsd:string" name="barCode"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="MK_Type">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute type="xsd:string" name="stuffer"/>
+                <xsd:attribute type="xsd:string" name="segment"/>
+                <xsd:attribute type="xsd:byte"   name="numberVS"/>
+                <xsd:attribute type="xsd:byte"   name="explainFlag"/>
+                <xsd:attribute type="xsd:string" name="campaign"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="HIST_Type">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute type="xsd:float" name="month9"/>
+                <xsd:attribute type="xsd:float" name="month8"/>
+                <xsd:attribute type="xsd:float" name="month7"/>
+                <xsd:attribute type="xsd:float" name="month6"/>
+                <xsd:attribute type="xsd:float" name="month5"/>
+                <xsd:attribute type="xsd:float" name="month4"/>
+                <xsd:attribute type="xsd:float" name="month3"/>
+                <xsd:attribute type="xsd:float" name="month2"/>
+                <xsd:attribute type="xsd:float" name="month13"/>
+                <xsd:attribute type="xsd:float" name="month12"/>
+                <xsd:attribute type="xsd:float" name="month11"/>
+                <xsd:attribute type="xsd:float" name="month10"/>
+                <xsd:attribute type="xsd:float" name="month1"/>
+                <xsd:attribute type="xsd:float" name="min9"/>
+                <xsd:attribute type="xsd:float" name="min8"/>
+                <xsd:attribute type="xsd:float" name="min7"/>
+                <xsd:attribute type="xsd:float" name="min6"/>
+                <xsd:attribute type="xsd:float" name="min5"/>
+                <xsd:attribute type="xsd:float" name="min4"/>
+                <xsd:attribute type="xsd:float" name="min3"/>
+                <xsd:attribute type="xsd:float" name="min2"/>
+                <xsd:attribute type="xsd:byte"  name="min13"/>
+                <xsd:attribute type="xsd:float" name="min12"/>
+                <xsd:attribute type="xsd:float" name="min11"/>
+                <xsd:attribute type="xsd:float" name="min10"/>
+                <xsd:attribute type="xsd:float" name="min1"/>
+                <xsd:attribute type="xsd:float" name="maxCons"/>
+                <xsd:attribute type="xsd:float" name="dayAVG"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="LOY_Type">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute type="xsd:date" name="procDt"/>
+                <xsd:attribute type="xsd:byte" name="noFacCheck"/>
+                <xsd:attribute type="xsd:byte" name="loyFlag"/>
+                <xsd:attribute type="xsd:byte" name="expPoints3"/>
+                <xsd:attribute type="xsd:byte" name="expPoints2"/>
+                <xsd:attribute type="xsd:byte" name="expPoints1"/>
+                <xsd:attribute type="xsd:date" name="expDt3"/>
+                <xsd:attribute type="xsd:date" name="expDt2"/>
+                <xsd:attribute type="xsd:date" name="expDt1"/>
+                <xsd:attribute type="xsd:byte" name="currBal2"/>
+                <xsd:attribute type="xsd:short" name="currBal1"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="VPN_Type">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute type="xsd:int"    name="vpnId"/>
+                <xsd:attribute type="xsd:byte"   name="vpnGroupId"/>
+                <xsd:attribute type="xsd:string" name="descGCU"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="TAXSUMM_Type">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute type="xsd:float"  name="totalTax" use="optional"/>
+                <xsd:attribute type="xsd:float"  name="totalAmt" use="optional"/>
+                <xsd:attribute type="xsd:string" name="taxSap"   use="optional"/>
+                <xsd:attribute type="xsd:float"  name="taxRate"  use="optional"/>
+                <xsd:attribute type="xsd:string" name="taxName"  use="optional"/>
+                <xsd:attribute type="xsd:float"  name="baseTotal" use="optional"/>
+                <xsd:attribute type="xsd:float"  name="amtToPay" use="optional"/>
+                <xsd:attribute type="xsd:float"  name="totalAmt2" use="optional"/>
+                <xsd:attribute type="xsd:float"  name="totalAmt1" use="optional"/>
+                <xsd:attribute type="xsd:string" name="taxSap2"  use="optional"/>
+                <xsd:attribute type="xsd:string" name="taxSap1"  use="optional"/>
+                <xsd:attribute type="xsd:float"  name="baseTotal2" use="optional"/>
+                <xsd:attribute type="xsd:float"  name="baseTotal1" use="optional"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:complexType name="groupTOT_Type" >
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute type="xsd:float" name="totalUsg" use="optional"/>
+                <xsd:attribute type="xsd:float" name="totalChrg" use="optional"/>
+                <xsd:attribute type="xsd:float" name="totalAmt" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="groupId" use="optional"/>
+                <xsd:attribute type="xsd:string" name="groupDesc" use="optional"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:complexType name="TOT_Type">
+        <xsd:sequence>
+            <xsd:element name="TAXSUMM" maxOccurs="unbounded" minOccurs="0" type="TAXSUMM_Type" />
+            <xsd:element name="groupTOT" maxOccurs="unbounded" minOccurs="0" type="groupTOT_Type" />
+        </xsd:sequence>
+        <xsd:attribute type="xsd:float" name="totalAmt" use="optional"/>
+        <xsd:attribute type="xsd:float" name="subtotalAmt" use="optional"/>
+        <xsd:attribute type="xsd:float" name="simPay" use="optional"/>
+        <xsd:attribute type="xsd:float" name="previousDue" use="optional"/>
+        <xsd:attribute type="xsd:float" name="pendingCredit" use="optional"/>
+        <xsd:attribute type="xsd:float" name="paymentsAmt" use="optional"/>
+        <xsd:attribute type="xsd:float" name="hogar" use="optional"/>
+        <xsd:attribute type="xsd:float" name="gamb" use="optional"/>
+        <xsd:attribute type="xsd:float" name="billCredit" use="optional"/>
+        <xsd:attribute type="xsd:float" name="amtToPay" use="optional"/>
+        <xsd:attribute type="xsd:float" name="TCVF" use="optional"/>
+        <xsd:attribute type="xsd:float" name="ER" use="optional" />
+        <xsd:attribute type="xsd:float" name="totalDiscount" use="optional"/>
+        <xsd:attribute type="xsd:short" name="count" use="optional"/>
+        <xsd:attribute type="xsd:int"   name="totalUnits" use="optional"/>
+        <xsd:attribute type="xsd:float" name="appliedDiscount" use="optional"/>
+        <xsd:attribute type="xsd:string" name="liDura" use="optional"/>
+        <xsd:attribute type="xsd:short" name="unitsType" use="optional"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="RESDISC_Type">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute type="xsd:float" name="totalDisc" use="optional"/>
+                <xsd:attribute type="xsd:float" name="totalAmt" use="optional"/>
+                <xsd:attribute type="xsd:string" name="desc" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="count" use="optional"/>
+                <xsd:attribute type="xsd:short" name="discountId" use="optional"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="RESTYPE_Type">
+        <xsd:sequence>
+            <xsd:element name="TOT" type="TOT_Type" />
+        </xsd:sequence>
+        <xsd:attribute type="xsd:short" name="idTipo" use="optional"/>
+        <xsd:attribute type="xsd:string" name="descTipo" use="optional"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="RESGROUP_Type">
+        <xsd:sequence>
+            <xsd:element name="TOT" type="TOT_Type" />
+            <xsd:element name="Rc" maxOccurs="unbounded" minOccurs="0" type="RC_Type" />
+            <xsd:element name="NRC" type="RC_Type" />
+            <xsd:element name="RESDISC" maxOccurs="unbounded" minOccurs="0" type="RESDISC_Type" />
+            <xsd:element name="RESTYPE" maxOccurs="unbounded" minOccurs="0" type="RESTYPE_Type" />
+        </xsd:sequence>
+        <xsd:attribute type="xsd:byte" name="groupID" use="optional"/>
+        <xsd:attribute type="xsd:string" name="groupDesc" use="optional"/>
+    </xsd:complexType>
+    
+    <xsd:complexType name="RESCHA_Type">
+        <xsd:sequence>
+            <xsd:element name="TOT" type="TOT_Type" />
+            <xsd:element name="RESGROUP" maxOccurs="unbounded" minOccurs="0" type="RESGROUP_Type" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="RESUSG_Type">
+        <xsd:sequence>
+            <xsd:element name="TOT" type="TOT_Type"/>
+            <xsd:element name="RESGROUP" maxOccurs="unbounded" minOccurs="0" type="RESGROUP_Type" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="SERVSUMMARY_Type">
+        <xsd:sequence>
+            <xsd:element name="Tot" type="TOT_Type" />
+            <xsd:element name="RESCHA" type="RESCHA_Type" />
+            <xsd:element name="RESUSG" type="RESUSG_Type" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="CONT_Type">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute type="xsd:string" name="taxSap" use="optional"/>
+                <xsd:attribute type="xsd:float" name="tax" use="optional"/>
+                <xsd:attribute type="xsd:int" name="sfid" use="optional"/>
+                <xsd:attribute type="xsd:float" name="percent" use="optional">
+                    <xsd:annotation>
+                        <xsd:appinfo>
+                            <jaxb:property name="percentNo"/>
+                        </xsd:appinfo>
+                    </xsd:annotation>  
+                </xsd:attribute>
+                <xsd:attribute type="xsd:byte" name="flagComission" use="optional"/>
+                <xsd:attribute type="xsd:float" name="disc" use="optional"/>
+                <xsd:attribute type="xsd:string" name="contAcctDesc" use="optional"/>
+                <xsd:attribute type="xsd:int" name="contAcct" use="optional"/>
+                <xsd:attribute type="xsd:float" name="amt" use="optional"/>
+                <xsd:attribute type="xsd:string" name="accalias" use="optional"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="DISC_Type">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute type="xsd:byte" name="suppServ" use="optional"/>
+                <xsd:attribute type="xsd:date" name="startDt" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="productLineId" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="franchFlag" use="optional"/>
+                <xsd:attribute type="xsd:float" name="federalTax" use="optional"/>
+                <xsd:attribute type="xsd:short" name="discountId" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="discType" use="optional"/>
+                <xsd:attribute type="xsd:short" name="billRow" use="optional"/>
+                <xsd:attribute type="xsd:float" name="baseAmt" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="subscrNoResets" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="subscrNo" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="productGroupID" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="icbAllow" use="optional"/>
+                <xsd:attribute type="xsd:short" name="descriptionCode" use="optional"/>
+                <xsd:attribute type="xsd:float" name="tax" use="optional"/>
+                <xsd:attribute type="xsd:float" name="discPercent" use="optional"/>
+                <xsd:attribute type="xsd:float" name="disc" use="optional"/>
+                <xsd:attribute type="xsd:float" name="amt" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="draw" use="optional"/>
+                <xsd:attribute type="xsd:string" name="desc" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="productLineFPGD" use="optional"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>    
+    
+    <xsd:complexType name="RCS_Type">
+        <xsd:sequence>
+            <xsd:element name="TOT" type="TOT_Type" />
+            <xsd:element name="RC" maxOccurs="unbounded" minOccurs="0" type="RC_Type" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="DISCS_Type" >
+        <xsd:sequence>
+            <xsd:element name="TOT" type="TOT_Type" />
+            <xsd:element name="DISC" maxOccurs="unbounded" minOccurs="0" type="DISC_Type" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ACCNTCHARGES_Type">
+        <xsd:sequence>
+            <xsd:element name="Tot" type="TOT_Type" />
+            <xsd:element name="RCS" type="RCS_Type" />
+            <xsd:element name="DISCS" type="DISCS_Type" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="PULL_Type">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute type="xsd:string" name="descResp"/>
+                <xsd:attribute type="xsd:string" name="descOrden"/>
+                <xsd:attribute type="xsd:string" name="descDept"/>
+                <xsd:attribute type="xsd:byte" name="codResp"/>
+                <xsd:attribute type="xsd:byte" name="codDept"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:complexType name="OPT_Type">
+        <xsd:sequence>
+            <xsd:element name="HIST" type="HIST_Type" />
+            <xsd:element name="LOY" type="LOY_Type" />
+            <xsd:element name="PULL" type="PULL_Type" />
+            <xsd:element name="VPN" type="VPN_Type" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="INFO_Type">
+        <xsd:sequence>
+            <xsd:element name="SERV" type="SERV1_Type"  minOccurs="0"/>
+            <xsd:element name="BILL" type="BILL_Type" />
+            <xsd:element name="CUST" type="CUST_Type" />
+            <xsd:element name="ADDR" type="ADDR_Type" />
+            <xsd:element name="PAY"  type="PAY_Type" minOccurs="0"/>
+            <xsd:element name="MK" type="MK_Type" minOccurs="0"/>
+            <xsd:element name="OPT" type="OPT_Type" minOccurs="0" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="EXEMPT_Type">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute type="xsd:string" name="type" use="optional"/>
+                <xsd:attribute type="xsd:string" name="time" use="optional"/>
+                <xsd:attribute type="xsd:string" name="subtype" use="optional"/>
+                <xsd:attribute type="xsd:int" name="serv" use="optional"/>
+                <xsd:attribute type="xsd:string" name="product" use="optional"/>
+                <xsd:attribute type="xsd:string" name="desc" use="optional"/>
+                <xsd:attribute type="xsd:date" name="date" use="optional"/>
+                <xsd:attribute type="xsd:float" name="amt" use="optional"/>
+                <xsd:attribute type="xsd:string" name="ShopName" use="optional"/>
+                <xsd:attribute type="xsd:short" name="ProviderId" use="optional"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="LINE_Type">
+        <xsd:sequence>
+            <xsd:element name="EXEMPT" type="EXEMPT_Type"/>
+        </xsd:sequence>
+        <xsd:attribute type="xsd:float" name="total" use="optional"/>
+        <xsd:attribute type="xsd:string" name="time" use="optional"/>
+        <xsd:attribute type="xsd:int" name="serv" use="optional"/>
+        <xsd:attribute type="xsd:string" name="product" use="optional"/>
+        <xsd:attribute type="xsd:byte" name="isVoiceUsage" use="optional"/>
+        <xsd:attribute type="xsd:string" name="extIdDOC1" use="optional"/>
+        <xsd:attribute type="xsd:string" name="desc" use="optional"/>
+        <xsd:attribute type="xsd:date" name="date" use="optional"/>
+    </xsd:complexType>
+    
+    <xsd:complexType name="SERVTOTAL_Type">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute type="xsd:string" name="voicePricePlan" use="optional"/>
+                <xsd:attribute type="xsd:float" name="totalUsage" use="optional"/>
+                <xsd:attribute type="xsd:float" name="totalCharges" use="optional"/>
+                <xsd:attribute type="xsd:float" name="total" use="optional"/>
+                <xsd:attribute type="xsd:string" name="serv" use="optional"/>
+                <xsd:attribute type="xsd:float" name="netTotalUsage" use="optional"/>
+                <xsd:attribute type="xsd:float" name="netTotalCharges" use="optional"/>
+                <xsd:attribute type="xsd:float" name="netTotal" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="franchiseDiscount" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="franchiseCharge" use="optional"/>
+                <xsd:attribute type="xsd:string" name="fixPricePlan" use="optional"/>
+                <xsd:attribute type="xsd:string" name="fixExternalId" use="optional"/>
+                <xsd:attribute type="xsd:string" name="extIdDOC1" use="optional"/>
+                <xsd:attribute type="xsd:string" name="datPricePlan" use="optional"/>
+                <xsd:attribute type="xsd:float" name="appliedDiscount" use="optional"/>
+                <xsd:attribute type="xsd:float" name="accountDiscount" use="optional"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="CREDIT_Type">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute type="xsd:short" name="unitCrId" use="optional"/>
+                <xsd:attribute type="xsd:int" name="subscrSeq" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="subscrNoResets" use="optional"/>
+                <xsd:attribute type="xsd:int" name="subscrNo" use="optional"/>
+                <xsd:attribute type="xsd:string" name="sfid" use="optional"/>
+                <xsd:attribute type="xsd:int" name="serv" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="productLine" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="productGroup" use="optional"/>
+                <xsd:attribute type="xsd:float" name="amtCredited" use="optional"/>
+                <xsd:attribute type="xsd:int" name="techTransDt" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="techFlag" use="optional"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="NOTAXSUMM_Type">
+        <xsd:sequence>
+            <xsd:element name="LINE" maxOccurs="unbounded" minOccurs="0" type="LINE_Type" />
+        </xsd:sequence>
+        <xsd:attribute type="xsd:byte" name="totalDiscount"/>
+        <xsd:attribute type="xsd:float" name="total"/>
+        <xsd:attribute type="xsd:byte" name="appliedDiscount"/>
+    </xsd:complexType>
+    
+    <xsd:complexType name="SERVTOTALSUMM_Type">
+        <xsd:sequence>
+            <xsd:element name="SERVTOTAL" maxOccurs="unbounded" minOccurs="0" type="SERVTOTAL_Type" />
+        </xsd:sequence>
+        <xsd:attribute type="xsd:float" name="totalAmt"/>
+        <xsd:attribute type="xsd:short" name="count"/>
+    </xsd:complexType>
+    
+    <xsd:complexType name="CREDITS_Type">
+        <xsd:sequence>
+            <xsd:element name="CREDIT" maxOccurs="unbounded" minOccurs="0" type="CREDIT_Type" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="SERV1_Type">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute type="xsd:byte" name="vpnFlag" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="techFlag" use="optional"/>
+                <xsd:attribute type="xsd:int" name="subscrSeq" use="optional"/>
+                <xsd:attribute type="xsd:string" name="sfid" use="optional"/>
+                <xsd:attribute type="xsd:string" name="promoID" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="productLineId" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="preselInd" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="omnia" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="maskNum" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="maskFlag" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="langCode" use="optional"/>
+                <xsd:attribute type="xsd:date" name="inactiveDt" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="formatOpt" use="optional"/>
+                <xsd:attribute type="xsd:string" name="fixNum" use="optional"/>
+                <xsd:attribute type="xsd:string" name="fixCommID" use="optional"/>
+                <xsd:attribute type="xsd:int" name="externalID" use="optional"/>
+                <xsd:attribute type="xsd:string" name="extIdDOC1" use="optional"/>
+                <xsd:attribute type="xsd:int" name="ext" use="optional"/>
+                <xsd:attribute type="xsd:short" name="element_id" use="optional"/>
+                <xsd:attribute type="xsd:string" name="datElementID" use="optional"/>
+                <xsd:attribute type="xsd:string" name="datCommID" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="courtBill" use="optional"/>
+                <xsd:attribute type="xsd:string" name="contractInd" use="optional"/>
+                <xsd:attribute type="xsd:string" name="commID" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="bagServ" use="optional"/>
+                <xsd:attribute type="xsd:date" name="activeDt" use="optional"/>
+                <xsd:attribute type="xsd:string" name="VoicePricePlan" use="optional"/>
+                <xsd:attribute type="xsd:string" name="DataPricePlan" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="subscrNoResets" use="optional"/>
+                <xsd:attribute type="xsd:int" name="subscrNo" use="optional"/>
+                <xsd:attribute type="xsd:string" name="FixPricePlan" use="optional"/>
+                <xsd:attribute type="xsd:date" name="techTransDt" use="optional"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>    
+    
+    <xsd:complexType mixed="true" name="RC_Type">
+        <xsd:sequence>
+            <xsd:element name="CONT" minOccurs="0" type="CONT_Type" />
+        </xsd:sequence>
+        <xsd:attribute type="xsd:short" name="count" use="optional"/>
+        <xsd:attribute type="xsd:date" name="transDt" use="optional"/>
+        <xsd:attribute type="xsd:dateTime" name="trackingDt" use="optional"/>
+        <xsd:attribute type="xsd:short" name="nrcID" use="optional"/>
+        <xsd:attribute type="xsd:string" name="annot" use="optional"/>
+        <xsd:attribute type="xsd:int" name="subscrNo" use="optional">
+            <xsd:annotation>
+                <xsd:appinfo>
+                    <jaxb:property name="idSubscrNo"/>
+                </xsd:appinfo>
+            </xsd:annotation>     
+        </xsd:attribute>
+        
+        <xsd:attribute type="xsd:byte" name="units" use="optional"/>
+        <xsd:attribute type="xsd:date" name="toDt" use="optional"/>
+        <xsd:attribute type="xsd:byte" name="suppServ" use="optional"/>
+        <xsd:attribute type="xsd:byte" name="subscr_no" use="optional"/>
+        <xsd:attribute type="xsd:byte" name="subscrNoResets" use="optional"/>
+        <xsd:attribute type="xsd:byte" name="productLineId" use="optional"/>
+        <xsd:attribute type="xsd:float" name="percent" use="optional">
+            <xsd:annotation>
+                <xsd:appinfo>
+                    <jaxb:property name="percentNo"/>
+                </xsd:appinfo>
+            </xsd:annotation>  
+        </xsd:attribute>
+        <xsd:attribute type="xsd:date" name="fromDt" use="optional"/>
+        <xsd:attribute type="xsd:byte" name="franchFlag" use="optional"/>
+        <xsd:attribute type="xsd:short" name="elementId" use="optional"/>
+        <xsd:attribute type="xsd:string" name="conceptType" use="optional"/>
+        <xsd:attribute type="xsd:string" name="commId" use="optional"/>
+        <xsd:attribute type="xsd:byte" name="aggrFlag" use="optional"/>
+        <xsd:attribute type="xsd:float" name="tax" use="optional"/>
+        <xsd:attribute type="xsd:float" name="discPercent" use="optional"/>
+        <xsd:attribute type="xsd:float" name="disc" use="optional"/>
+        <xsd:attribute type="xsd:float" name="amt" use="optional"/>
+        <xsd:attribute type="xsd:byte" name="draw" use="optional"/>
+        <xsd:attribute type="xsd:string" name="desc" use="optional"/>
+        <xsd:attribute type="xsd:byte" name="groupedCount" use="optional"/>
+        <xsd:attribute type="xsd:byte" name="isReal" use="optional"/>
+        <xsd:attribute type="xsd:string" name="Literal" use="optional"/>
+    </xsd:complexType>
+    
+    <xsd:complexType name="NRCS_Type">
+        <xsd:sequence>
+            <xsd:element name="TOT" type="TOT_Type" />
+            <xsd:element name="NRC" maxOccurs="unbounded" minOccurs="0" type="RC_Type" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="GRUPO_Type">
+        <xsd:sequence>
+            <xsd:element name="Tot" type="TOT_Type" />
+            <xsd:element name="RCS" type="NRCS_Type" />
+            <xsd:element name="NRCS" minOccurs="0" type="NRCS_Type" />
+            <xsd:element name="DISCS" minOccurs="0" type="DISCS_Type" />
+        </xsd:sequence>
+        <xsd:attribute type="xsd:byte" name="groupID" use="optional"/>
+        <xsd:attribute type="xsd:string" name="groupDesc" use="optional"/>
+        <xsd:attribute type="xsd:byte" name="draw" use="optional"/>
+    </xsd:complexType>
+    <xsd:complexType name="CHARGES_Type">
+        <xsd:sequence>
+            <xsd:element name="TOT" type="TOT_Type"/>
+            <xsd:element name="GRUPO" maxOccurs="unbounded" minOccurs="0" type="GRUPO_Type" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="CDR_Type">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute type="xsd:string" name="unitsType3" use="optional"/>
+                <xsd:attribute type="xsd:string" name="unitsType2" use="optional"/>
+                <xsd:attribute type="xsd:string" name="unitsType1" use="optional"/>
+                <xsd:attribute type="xsd:string" name="units2" use="optional"/>
+                <xsd:attribute type="xsd:string" name="units1" use="optional"/>
+                <xsd:attribute type="xsd:string" name="servType" use="optional"/>
+                <xsd:attribute type="xsd:string" name="promoID" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="flagBrooklin" use="optional"/>
+                <xsd:attribute type="xsd:string" name="eventID" use="optional"/>
+                <xsd:attribute type="xsd:short" name="unitsType" use="optional"/>
+                <xsd:attribute type="xsd:short" name="unitsCredited" use="optional"/>
+                <xsd:attribute type="xsd:int" name="units" use="optional"/>
+                <xsd:attribute type="xsd:short" name="typeIdUsg" use="optional"/>
+                <xsd:attribute type="xsd:dateTime" name="transDt" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="thirdUnits" use="optional"/>
+                <xsd:attribute type="xsd:int" name="targetId" use="optional"/>
+                <xsd:attribute type="xsd:string" name="target" use="optional"/>
+                <xsd:attribute type="xsd:int" name="secondUnits" use="optional"/>
+                <xsd:attribute type="xsd:string" name="ratePeriod" use="optional"/>
+                <xsd:attribute type="xsd:short" name="provId" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="productLineId" use="optional"/>
+                <xsd:attribute type="xsd:int" name="primaryUnits" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="originID" use="optional"/>
+                <xsd:attribute type="xsd:string" name="origin" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="isReal" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="extIDType" use="optional"/>
+                <xsd:attribute type="xsd:string" name="extID" use="optional"/>
+                <xsd:attribute type="xsd:short" name="element_id" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="draw" use="optional"/>
+                <xsd:attribute type="xsd:float" name="discountAmt" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="corridorID" use="optional"/>
+                <xsd:attribute type="xsd:string" name="constTypeSAP" use="optional"/>
+                <xsd:attribute type="xsd:string" name="consTypeDWH" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="consType" use="optional"/>
+                <xsd:attribute type="xsd:string" name="cdrType" use="optional"/>
+                <xsd:attribute type="xsd:short" name="billUnitsType" use="optional"/>
+                <xsd:attribute type="xsd:float" name="baseAmt" use="optional"/>
+                <xsd:attribute type="xsd:string" name="auxType2" use="optional"/>
+                <xsd:attribute type="xsd:string" name="auxType1" use="optional"/>
+                <xsd:attribute type="xsd:float" name="amtCredited" use="optional"/>
+                <xsd:attribute type="xsd:float" name="amt" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="aggrUsageId" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="maskNum" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="maskFlag" use="optional"/>
+                <xsd:attribute type="xsd:string" name="liTime" use="optional"/>
+                <xsd:attribute type="xsd:string" name="liRealDura" use="optional"/>
+                <xsd:attribute type="xsd:string" name="liRate" use="optional"/>
+                <xsd:attribute type="xsd:string" name="liDura" use="optional"/>
+                <xsd:attribute type="xsd:string" name="liDest2" use="optional"/>
+                <xsd:attribute type="xsd:string" name="liDest1" use="optional"/>
+                <xsd:attribute type="xsd:string" name="liDate" use="optional"/>
+                <xsd:attribute type="xsd:string" name="CodDest2" use="optional"/>
+                <xsd:attribute type="xsd:short" name="unitCRID" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="subscrNoResets" use="optional"/>
+                <xsd:attribute type="xsd:int" name="subscrNo" use="optional"/>
+                <xsd:attribute type="xsd:byte" name="productGroupId" use="optional"/>
+                <xsd:attribute type="xsd:short" name="idTipo" use="optional"/>
+                <xsd:attribute type="xsd:string" name="conceptType" use="optional"/>
+                <xsd:attribute type="xsd:string" name="url" use="optional"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:complexType name="TYPE_Type" >
+        <xsd:sequence>
+            <xsd:element name="TOT" type="TOT_Type" />
+            <xsd:element name="CDR" maxOccurs="unbounded" minOccurs="0" type="CDR_Type" />
+            <xsd:element name="AGGR" maxOccurs="unbounded" minOccurs="0" type="AGGR_Type" />
+        </xsd:sequence>
+        <xsd:attribute type="xsd:short" name="idTipo" use="optional"/>
+        <xsd:attribute type="xsd:string" name="descTipo" use="optional"/>
+        <xsd:attribute type="xsd:byte" name="draw" use="optional"/>
+    </xsd:complexType>
+    <xsd:complexType name="GROUP_Type">
+        <xsd:sequence>
+            <xsd:element name="TOT" type="TOT_Type" />
+            <xsd:element name="TYPE" maxOccurs="unbounded" minOccurs="0" type="TYPE_Type" />
+        </xsd:sequence>
+        <xsd:attribute type="xsd:byte" name="groupID" use="optional"/>
+        <xsd:attribute type="xsd:string" name="groupDesc" use="optional"/>
+        <xsd:attribute type="xsd:byte" name="draw" use="optional"/>
+    </xsd:complexType>
+    <xsd:complexType name="AGGR_Type">
+        <xsd:sequence>
+            <xsd:element name="CONT" type="CONT_Type" />
+        </xsd:sequence>
+        <xsd:attribute type="xsd:short" name="typeIdUsg" use="optional"/>
+        <xsd:attribute type="xsd:short" name="elementId" use="optional"/>
+    </xsd:complexType>
+    <xsd:complexType name="USAGE_Type" >
+        <xsd:sequence>
+            <xsd:element name="TOT" type="TOT_Type" />
+            <xsd:element name="GROUP" maxOccurs="unbounded" minOccurs="0" type="GROUP_Type" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="SERV_Type">
+        <xsd:sequence>
+            <xsd:element name="INFO" type="INFO_Type" />
+            <xsd:element name="TOT" type="TOT_Type" />
+            <xsd:element name="CHARGES" type="CHARGES_Type" />
+            <xsd:element name="USAGE" minOccurs="0" type="USAGE_Type" />
+        </xsd:sequence>
+        <xsd:attribute type="xsd:byte" name="draw" use="optional"/>
+    </xsd:complexType>
+</xsd:schema>

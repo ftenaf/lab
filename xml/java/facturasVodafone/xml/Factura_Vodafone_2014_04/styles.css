@@ -1,0 +1,223 @@
+BODY {
+	font-size: 10px; color: black; font-family: verdana, helvetica, arial, sans-serif; background-color: #ffffff
+}
+TD {
+	font-size: 10px; color: black; font-family: verdana, helvetica, arial, sans-serif
+}
+A:link {
+	font-size: 10px; color: black; font-family: verdana, helvetica, arial, sans-serif; text-decoration: underline
+}
+A:active {
+	font-size: 10px; color: black; font-family: verdana, helvetica, arial, sans-serif; text-decoration: underline
+}
+A:visited {
+	font-size: 10px; color: black; font-family: verdana, helvetica, arial, sans-serif; text-decoration: underline
+}
+A.submenu:link {
+	font-weight: bold; font-size: 10px; color: black; font-family: verdana, helvetica, arial, sans-serif; text-decoration: none
+}
+A.submenu:active {
+	font-weight: bold; font-size: 10px; color: black; font-family: verdana, helvetica, arial, sans-serif; text-decoration: none
+}
+A.submenu:visited {
+	font-weight: bold; font-size: 10px; color: black; font-family: verdana, helvetica, arial, sans-serif; text-decoration: none
+}
+A.submenu2:link {
+	font-size: 10px; color: black; font-family: verdana, helvetica, arial, sans-serif; text-decoration: none
+}
+A.submenu2:active {
+	font-size: 10px; color: black; font-family: verdana, helvetica, arial, sans-serif; text-decoration: none
+}
+A.submenu2:visited {
+	font-size: 10px; color: black; font-family: verdana, helvetica, arial, sans-serif; text-decoration: none
+}
+A.submenu3:link {
+	font-size: 10px; color: #686468; font-family: verdana, helvetica, arial, sans-serif; text-decoration: none
+}
+A.submenu3:active {
+	font-size: 10px; color: #686468; font-family: verdana, helvetica, arial, sans-serif; text-decoration: none
+}
+A.submenu3:visited {
+	font-size: 10px; color: #686468; font-family: verdana, helvetica, arial, sans-serif; text-decoration: none
+}
+A.headingred:link {
+	font-weight: bold; font-size: 10px; color: #ff0000; font-family: verdana, helvetica, arial, sans-serif; text-decoration: none
+}
+A.headingred:active {
+	font-weight: bold; font-size: 10px; color: #ff0000; font-family: verdana, helvetica, arial, sans-serif; text-decoration: none
+}
+A.headingred:visited {
+	font-weight: bold; font-size: 10px; color: #ff0000; font-family: verdana, helvetica, arial, sans-serif; text-decoration: none
+}
+.destination {
+	z-index: 20; left: 185px; position: absolute; top: 240px
+}
+.heading1 {
+	font-weight: bold; font-size: 10px; color: black; font-family: verdana, helvetica, arial, sans-serif
+}
+.heading2 {
+	font-weight: bold; font-size: 12px; color: black; font-family: verdana, helvetica, arial, sans-serif
+}
+.heading3 {
+	font-weight: bold; font-size: 15px; color: black; font-family: verdana, helvetica, arial, sans-serif
+}
+.headingred {
+	font-weight: bold; font-size: 10px; color: #ff0000; font-family: verdana, helvetica, arial
+}
+.heading2red {
+	font-weight: bold; font-size: 15px; color: #ff0000; font-family: verdana, helvetica, arial, sans-serif
+}
+.heading3red {
+	font-weight: normal; font-size: 21px; color: #ff0000; font-family: verdana, helvetica, arial, sans-serif
+}
+.heading2grey {
+	font-weight: bold; font-size: 15px; color: #666666; font-family: verdana, helvetica, arial, sans-serif
+}
+.heading3grey {
+	font-weight: normal; font-size: 21px; color: #666666; font-family: verdana, helvetica, arial, sans-serif
+}
+.heading1grey {
+	font-weight: bold; font-size: 10px; color: #666666; font-family: verdana, helvetica, arial, sans-serif
+}
+.txtBox {
+	font-size: 10px; width: 90px; color: black; font-family: verdana, helvetica, arial, sans-serif; HEIGHT: 17px
+}
+.txtBox2 {
+	font-size: 10px; width: 105px; color: black; font-family: verdana, helvetica, arial, sans-serif; HEIGHT: 19px
+}
+.txtBox3 {
+	font-size: 10px; width: 135px; color: black; font-family: verdana, helvetica, arial, sans-serif; HEIGHT: 20px
+}
+.txtBlack {
+	font-weight: normal; font-size: 10px; color: black; font-family: verdana, helvetica, arial, sans-serif
+}
+.txtGrey {
+	font-weight: normal; font-size: 10px; color: #666666; font-family: verdana, helvetica, arial, sans-serif
+}
+.txtRed {
+	font-weight: normal; font-size: 10px; color: #ff0000; font-family: verdana, helvetica, arial, sans-serif
+}
+.txtWhite {
+	font-weight: normal; font-size: 10px; color: #ffffff; font-family: verdana, helvetica, arial, sans-serif
+}
+.txtGreyItalic {
+	font-weight: normal; font-size: 10px; color: #666666; FONT-STYLE: italic; font-family: verdana, helvetica, arial, sans-serif
+}
+.txtBold {
+	font-weight: bold; font-size: 10px; font-family: verdana, helvetica, arial, sans-serif
+}
+.txtBlack2 {
+	font-weight: normal; font-size: 9px; color: black; FONT-STYLE: normal; font-family: verdana, helvetica, arial, sans-serif
+}
+.tercernivel {
+	font-weight: bold; font-size: 14px; color: #666666; FONT-STYLE: normal; font-family: verdana, helvetica, arial, sans-serif; text-decoration: none
+}
+.subnavBg {
+	background-image: url(../imagenes/fijos/sub_nav_bak.gif); background-repeat: repeat
+}
+.txtBox22 {
+	font-size: 10px; color: black; font-family: verdana, helvetica, arial, sans-serif; height: 19px
+}
+.txtBox60 {
+	font-size: 10px; width: 60px; color: black; font-family: verdana, helvetica, arial, sans-serif; height: 20px
+}
+A.headingred {
+	font-weight: bold; font-size: 10px; color: #ff0000; font-family: verdana, helvetica, arial, sans-serif; text-decoration: none
+}
+A.footer:link {
+	font-weight: normal; font-size: 10px; color: #ffffff; font-family: verdana, helvetica, arial, sans-serif; text-decoration: none
+}
+A.footer:visited {
+	font-weight: normal; font-size: 10px; color: #ffffff; font-family: verdana, helvetica, arial, sans-serif; text-decoration: none
+}
+A.footer:active {
+	font-weight: normal; font-size: 10px; color: #ffffff; font-family: verdana, helvetica, arial, sans-serif; text-decoration: none
+}
+A.footer:hover {
+	font-weight: normal; font-size: 10px; color: #ffffff; font-family: verdana, helvetica, arial, sans-serif; text-decoration: underline
+}
+.txtLegal {
+	font-weight: normal; font-size: 9px; color: #666666; font-family: verdana, helvetica, arial, sans-serif
+}
+.boxAccesos {
+	background-color: #FF0000; border-color: #000000; font-size: 9px; color: #FFFFFF; font-family: verdana, helvetica, arial, sans-serif; font-weight: bold 
+}
+.TopLevelRed {
+	font-weight: bold;	font-size: 16px; color: #ff0000; font-family: verdana, helvetica, arial, sans-serif;
+	text-decoration : none;
+}
+A.TopLevelRed:link {
+	font-weight: bold;	font-size: 16px; color: #ff0000; font-family: verdana, helvetica, arial, sans-serif;
+	text-decoration : none;
+}
+A.TopLevelRed:visited {
+	font-weight: bold;	font-size: 16px; color: #ff0000; font-family: verdana, helvetica, arial, sans-serif;
+	text-decoration : none;
+}
+.TopLevelGrey {
+	font-weight: bold; font-size: 12px; color: #666666; font-family: verdana, helvetica, arial, sans-serif;
+	text-decoration : none;
+}
+.TopLevelGreyIzq {
+	font-weight: bold; font-size: 15px; color: #666666; font-family: verdana, helvetica, arial, sans-serif;
+	text-decoration : none;
+}
+.SecondLevelRed {
+	font-weight: bold;	font-size: 15px; color: #ff0000; font-family: verdana, helvetica, arial, sans-serif;
+	text-decoration : none;
+}
+A.SecondLevelRed:link {
+	font-weight: bold;	font-size: 15px; color: #ff0000; font-family: verdana, helvetica, arial, sans-serif;
+	text-decoration : none;
+}
+A.SecondLevelRed:visited {
+	font-weight: bold;	font-size: 15px; color: #ff0000; font-family: verdana, helvetica, arial, sans-serif;
+	text-decoration : none;
+}
+.SecondLevelGrey {
+	font-weight: bold; font-size: 15px; color: #666666; font-family: verdana, helvetica, arial, sans-serif;
+	text-decoration : none;
+}
+A.SecondLevelGrey:link {
+	font-weight: bold; font-size: 15px; color: #666666; font-family: verdana, helvetica, arial, sans-serif;
+	text-decoration : none;
+}
+A.SecondLevelGrey:visited {
+	font-weight: bold; font-size: 15px; color: #666666; font-family: verdana, helvetica, arial, sans-serif;
+	text-decoration : none;
+}
+.scroll {
+	scrollbar-face-color: #FFFFFF; scrollbar-highlight-color: #FF0000; scrollbar-shadow-color: #FF0000;
+	scrollbar-3Dligh-color: #FF0000; scrollbar-arrow-color: #FF0000; scrollbar-darkshadow-color: #FFFFFF;
+	scrollbar-base-color: #FFFFFF;
+}
+.txtWhite {
+	FONT-WEIGHT: normal; FONT-SIZE: 10px; COLOR: #ffffff; FONT-FAMILY: verdana, helvetica, arial, sans-serif
+}
+.img {
+	cursor: hand;
+}
+.txtRedBold {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #ff0000; FONT-FAMILY: verdana, helvetica, arial
+}
+
+.txtBox400 {
+	font-size: 10px; width: 400px; color: black; font-family: verdana, helvetica, arial, sans-serif; HEIGHT: 100px
+}
+
+.txtBoxResumen {
+	font-size: 10px; width: 600px; color: white; font-family: verdana, helvetica, arial, sans-serif; HEIGHT: 100px; border-collapse: collapse;
+}
+
+.tableCollapsed {
+	border-collapse: collapse;
+}
+
+.tableGreyBorderCollapsed {
+	border-collapse: collapse; border-style: solid; border-color: #EAEAEA; border-width: 1px;
+}
+
+.blackBottomBorderHeading3 {
+	font-weight: bold; font-size: 15px; color: black; font-family: verdana, helvetica, arial, sans-serif;
+	border-bottom-style: solid; border-bottom-color: black; border-bottom-width: 1px;
+}

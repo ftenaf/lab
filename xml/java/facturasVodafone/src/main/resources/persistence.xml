@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:orm="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd">
+  <persistence-unit name="es.tena.vodafone.factura">
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <class>es.tena.vodafone.factura.ACCNTCHARGESType</class>
+        <class>es.tena.vodafone.factura.ADDRType</class>
+        <class>es.tena.vodafone.factura.AGGRType</class>
+        <class>es.tena.vodafone.factura.BILLType</class>
+        <class>es.tena.vodafone.factura.CDRType</class>
+        <class>es.tena.vodafone.factura.CHARGESType</class>
+        <class>es.tena.vodafone.factura.CONTType</class>
+        <class>es.tena.vodafone.factura.CREDITSType</class>
+        <class>es.tena.vodafone.factura.CREDITType</class>
+        <class>es.tena.vodafone.factura.CUSTType</class>
+        <class>es.tena.vodafone.factura.DISCSType</class>
+        <class>es.tena.vodafone.factura.DISCType</class>
+        <class>es.tena.vodafone.factura.EXEMPTType</class>
+        <class>es.tena.vodafone.factura.GROUPType</class>
+        <class>es.tena.vodafone.factura.GRUPOType</class>
+        <class>es.tena.vodafone.factura.GroupTOTType</class>
+        <class>es.tena.vodafone.factura.HISTType</class>
+        <class>es.tena.vodafone.factura.INFOType</class>
+        <class>es.tena.vodafone.factura.INSTACCNTType</class>
+        <class>es.tena.vodafone.factura.INVOICEType</class>
+        <class>es.tena.vodafone.factura.LINEType</class>
+        <class>es.tena.vodafone.factura.LOYType</class>
+        <class>es.tena.vodafone.factura.MKType</class>
+        <class>es.tena.vodafone.factura.NOTAXSUMMType</class>
+        <class>es.tena.vodafone.factura.NRCSType</class>
+        <class>es.tena.vodafone.factura.OPTType</class>
+        <class>es.tena.vodafone.factura.PAYType</class>
+        <class>es.tena.vodafone.factura.PULLType</class>
+        <class>es.tena.vodafone.factura.RCSType</class>
+        <class>es.tena.vodafone.factura.RCType</class>
+        <class>es.tena.vodafone.factura.RCType$RCTypeContentItem</class>
+        <class>es.tena.vodafone.factura.RESCHAType</class>
+        <class>es.tena.vodafone.factura.RESDISCType</class>
+        <class>es.tena.vodafone.factura.RESGROUPType</class>
+        <class>es.tena.vodafone.factura.RESTYPEType</class>
+        <class>es.tena.vodafone.factura.RESUSGType</class>
+        <class>es.tena.vodafone.factura.SERV1Type</class>
+        <class>es.tena.vodafone.factura.SERVSUMMARYType</class>
+        <class>es.tena.vodafone.factura.SERVTOTALSUMMType</class>
+        <class>es.tena.vodafone.factura.SERVTOTALType</class>
+        <class>es.tena.vodafone.factura.SERVType</class>
+        <class>es.tena.vodafone.factura.TAXSUMMType</class>
+        <class>es.tena.vodafone.factura.TOTType</class>
+        <class>es.tena.vodafone.factura.TYPEType</class>
+        <class>es.tena.vodafone.factura.USAGEType</class>
+        <class>es.tena.vodafone.factura.VPNType</class>
+    <properties>
+      <property name = "hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect"/>
+      <property name = "hibernate.connection.driver_class" value = "com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+      <property name = "hibernate.connection.url" value = "jdbc:sqlserver://localhost;databaseName=Telefono;instanceName=MSSQLSERVER;"/>
+      <property name = "hibernate.connection.username" value = "sa"/>
+      <property name = "hibernate.connection.password" value = ""/>
+      <property name = "hibernate.show_sql" value="true"/>
+    </properties>
+      <!--property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/factuvo?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
+      <property name="hibernate.show_sql" value="true"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.user" value="vodafone"/>
+      <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+    </properties-->
+  </persistence-unit>
+</persistence>

@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?><?xml-stylesheet type="text/xsl" href="Factura_Vodafone_2014_04/vf_generar_factura_html.xslt" ?><transformForView xmlns:xi="http://www.w3.org/2001/XInclude" ><xi:include href="Factura_Vodafone_2014_04/FAC0_13_35008_20140401_20_66_CG0030309869_1_F_11_0924428137.xml" /><dir value="Factura_Vodafone_2014_04" /></transformForView>

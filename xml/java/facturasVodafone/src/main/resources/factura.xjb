@@ -1,0 +1,20 @@
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb"
+          xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"
+          xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+          version="2.1">
+    <!--bindings schemaLocation="factura.xsd" version="1.0"-->
+        <!-- Customise the package name -->
+        <!--schemaBindings>
+            <package name="es.tena.vodafone.factura"/>
+        </schemaBindings-->
+
+        <!-- rename the value element -->
+        <!--bindings node="//xsd:complexType[@name='RC_Type']">
+            <bindings node=".//xsd:attribute[@name='subscrNo']">
+                <property name="SubscrNoAttribute"/>
+            </bindings>
+        </bindings>
+    </bindings>
+    <jaxb:globalBindings optionalProperty="primitive"/-->
+    
+</bindings>
